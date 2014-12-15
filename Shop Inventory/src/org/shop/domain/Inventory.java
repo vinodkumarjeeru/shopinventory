@@ -16,17 +16,15 @@ public class Inventory {
     private Customer customer_Id;
     private Purchase purchase_Id;
     private Address address_Id;
-    private Store item_Id;
 
     public Inventory() {
     }
 
-    public Inventory(Long inventory_Id, Customer customer_Id, Purchase purchase_Id, Address address_Id, Store item_Id) {
+    public Inventory(Long inventory_Id, Customer customer_Id, Purchase purchase_Id, Address address_Id) {
         this.inventory_Id = inventory_Id;
         this.customer_Id = customer_Id;
         this.purchase_Id = purchase_Id;
         this.address_Id = address_Id;
-        this.item_Id = item_Id;
     }
 
     public Long getInventory_Id() {
@@ -61,14 +59,6 @@ public class Inventory {
         this.address_Id = address_Id;
     }
 
-    public Store getItem_Id() {
-        return item_Id;
-    }
-
-    public void setItem_Id(Store item_Id) {
-        this.item_Id = item_Id;
-    }
-
     @Override
     public int hashCode() {
         int hash = 7;
@@ -87,8 +77,6 @@ public class Inventory {
         builder.append(purchase_Id);
         builder.append(", address_Id=");
         builder.append(address_Id);
-        builder.append(", item_Id=");
-        builder.append(item_Id);
         builder.append("]");
         return builder.toString();
     }

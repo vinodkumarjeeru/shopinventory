@@ -17,21 +17,19 @@ public class Store {
     private String item_Name;
     private int total_Items;
     private Date storage_Date;
-    private double unitPrice;
-    private double dayPrice;
+    private double price;
     private int soldItems;
     private int remainingItems;
 
     public Store() {
     }
 
-    public Store(Long item_Id, String item_Name, int total_Items, Date storage_Date, double unitPrice, double dayPrice, int soldItems, int remainingItems) {
+    public Store(Long item_Id, String item_Name, int total_Items, Date storage_Date, double price, int soldItems, int remainingItems) {
         this.item_Id = item_Id;
         this.item_Name = item_Name;
         this.total_Items = total_Items;
         this.storage_Date = storage_Date;
-        this.unitPrice = unitPrice;
-        this.dayPrice = dayPrice;
+        this.price = price;
         this.soldItems = soldItems;
         this.remainingItems = remainingItems;
     }
@@ -69,19 +67,11 @@ public class Store {
     }
 
     public double getUnitPrice() {
-        return unitPrice;
+        return price;
     }
 
     public void setUnitPrice(double unitPrice) {
-        this.unitPrice = unitPrice;
-    }
-
-    public double getDayPrice() {
-        return dayPrice;
-    }
-
-    public void setDayPrice(double dayPrice) {
-        this.dayPrice = dayPrice;
+        this.price = unitPrice;
     }
 
     public int getSoldItems() {
@@ -116,22 +106,19 @@ public class Store {
             return false;
         }
         final Store other = (Store) obj;
-        if (!Objects.equals(this.item_Id, other.item_Id)) {
+        if (this.item_Id != other.item_Id && (this.item_Id == null || !this.item_Id.equals(other.item_Id))) {
             return false;
         }
-        if (!Objects.equals(this.item_Name, other.item_Name)) {
+        if ((this.item_Name == null) ? (other.item_Name != null) : !this.item_Name.equals(other.item_Name)) {
             return false;
         }
         if (this.total_Items != other.total_Items) {
             return false;
         }
-        if (!Objects.equals(this.storage_Date, other.storage_Date)) {
+        if (this.storage_Date != other.storage_Date && (this.storage_Date == null || !this.storage_Date.equals(other.storage_Date))) {
             return false;
         }
-        if (Double.doubleToLongBits(this.unitPrice) != Double.doubleToLongBits(other.unitPrice)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.dayPrice) != Double.doubleToLongBits(other.dayPrice)) {
+        if (Double.doubleToLongBits(this.price) != Double.doubleToLongBits(other.price)) {
             return false;
         }
         if (this.soldItems != other.soldItems) {
@@ -154,10 +141,8 @@ public class Store {
         builder.append(total_Items);
         builder.append(", storage_Date=");
         builder.append(storage_Date);
-        builder.append(", unitPrice=");
-        builder.append(unitPrice);
-        builder.append(", dayPrice=");
-        builder.append(dayPrice);
+        builder.append(", price=");
+        builder.append(price);
         builder.append(", soldItems=");
         builder.append(soldItems);
         builder.append(", remainingItems=");

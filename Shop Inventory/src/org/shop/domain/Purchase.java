@@ -17,15 +17,17 @@ public class Purchase {
     private Customer customer_Id;
     private Store item_Id;
     private Date purchase_Date;
+    private SoldItemDescription sid;
 
     public Purchase() {
     }
 
-    public Purchase(Long bill_Id, Customer customer_Id, Store item_Id, Date purchase_Date) {
+    public Purchase(Long bill_Id, Customer customer_Id, Store item_Id, Date purchase_Date, SoldItemDescription sid) {
         this.bill_Id = bill_Id;
         this.customer_Id = customer_Id;
         this.item_Id = item_Id;
         this.purchase_Date = purchase_Date;
+        this.sid = sid;
     }
 
     public Long getBill_Id() {
@@ -60,6 +62,14 @@ public class Purchase {
         this.purchase_Date = purchase_Date;
     }
 
+    public SoldItemDescription getSid() {
+        return sid;
+    }
+
+    public void setSid(SoldItemDescription sid) {
+        this.sid = sid;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
@@ -90,8 +100,6 @@ public class Purchase {
         }
         return true;
     }
-    
-    
 
     @Override
     public String toString() {
@@ -104,6 +112,8 @@ public class Purchase {
         builder.append(item_Id);
         builder.append(", purchase_Date=");
         builder.append(purchase_Date);
+        builder.append(", Sold_ItemDescription_Id=");
+        builder.append(sid);
         builder.append("]");
         return builder.toString();
     }

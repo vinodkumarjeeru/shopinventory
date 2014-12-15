@@ -6,6 +6,9 @@ package org.shop.service.impl;
 
 import java.util.Date;
 import java.util.List;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.shop.domain.Address;
 import org.shop.domain.Transactions;
 import org.shop.domain.Customer;
@@ -13,6 +16,7 @@ import org.shop.domain.Inventory;
 import org.shop.domain.Purchase;
 import org.shop.domain.Store;
 import org.shop.service.InventoryService;
+import org.shop.utils.HibernateUtils;
 
 /**
  *
@@ -21,12 +25,26 @@ import org.shop.service.InventoryService;
 public class InventoryServiceImpl implements InventoryService {
 
     private static InventoryServiceImpl impl = new InventoryServiceImpl();
+    private static Session session = null;
 
     private InventoryServiceImpl() {
     }
 
+    private Session getSession() {
+        session = HibernateUtils.getSession();
+        return session;
+    }
+
+    private void closeSession(Session s, Transaction t) {
+        HibernateUtils.closeSession(session, t);
+    }
+
     @Override
     public void addInventoryDetails(Inventory inventory) {
+        session = getSession();
+        Transaction transaction = session.beginTransaction();
+        session.save(inventory);
+        closeSession(session, transaction);
     }
 
     @Override
@@ -61,14 +79,22 @@ public class InventoryServiceImpl implements InventoryService {
 
     @Override
     public List<Customer> getAllCustomers() {
-        List<Customer> list = null;
+        session = getSession();
+        Transaction transaction = session.beginTransaction();
+        Query query = session.createQuery("from Customer");
+        List<Customer> list = query.list();
+        closeSession(session, transaction);
         return list;
 
     }
 
     @Override
     public List<Store> getCompleteStoreData() {
-        List<Store> list = null;
+        session = getSession();
+        Transaction transaction = session.beginTransaction();
+        Query query = session.createQuery("from Customer");
+        List<Store> list = query.list();
+        closeSession(session, transaction);
         return list;
     }
 
