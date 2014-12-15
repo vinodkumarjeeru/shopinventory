@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.shop.domain.Address" table="address">
+        <id column="address_Id" name="addressId" type="java.lang.Long">
+            <generator class="native"/>
+        </id>
+        <property column="door_No" name="doorNo" type="java.lang.String"/>
+        <property column="villeage_Name" name="villeageName" type="java.lang.String"/>
+        <property column="district" name="districtName" type="java.lang.String"/>
+        <property column="state" name="stateName" type="java.lang.String"/>
+        <property column="pincode" name="pinCode" type="java.lang.Long"/>
+    </class>
+</hibernate-mapping>
