@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="org.shop.domain.Customer" table="customer">
+  <class name="org.shop.domain.Customer" table="customer">
         <id column="customer_Id" name="customer_Id" type="java.lang.Long">
             <generator class="native"/>
         </id>
-        <many-to-one column="address_Id" name="address" type="org.shop.domain.Address" unique="true" cascade="all"></many-to-one>
+        <many-to-one column="address_Id" name="address" type="org.shop.domain.Address" unique="true" cascade="all"/>
         <property column="customer_Name" name="customer_Name" type="java.lang.String"></property>
         <property column="customer_Phone" name="customer_Phone" type="java.lang.Long"></property>
         <property column="customer_Joindate" name="customer_Join_Date" type="java.util.Date"></property>
