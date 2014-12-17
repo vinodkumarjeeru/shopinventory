@@ -29,7 +29,7 @@ public interface InventoryService {
 
     public Customer findByCustomer(Long inventoryId);
 
-    public Store findByItem(Long inventoryId);
+    public Store findByItem(Long itemId);
 
     public Transactions getBalanceDetails(Long inventoryId);
 
