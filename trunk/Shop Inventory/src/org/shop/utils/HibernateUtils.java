@@ -21,7 +21,7 @@ public class HibernateUtils {
 
     public static Session getSession() {
         System.out.println(file.getName());
-        SessionFactory factory = new Configuration().configure(file).buildSessionFactory();
+        SessionFactory factory = new Configuration().configure().buildSessionFactory();
         session = factory.openSession();
         return session;
     }
