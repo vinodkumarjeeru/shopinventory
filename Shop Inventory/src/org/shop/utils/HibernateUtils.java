@@ -17,10 +17,11 @@ import org.hibernate.cfg.Configuration;
 public class HibernateUtils {
 
     private static Session session = null;
-    private static File file = new File("WebContent/WEB-INF/classes/hibernate.cfg.xml");
+    private static File file = new File("web/WEB-INF/classes/hibernate.cfg.xml");
 
     public static Session getSession() {
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
+        System.out.println(file.getName());
+        SessionFactory factory = new Configuration().configure(file).buildSessionFactory();
         session = factory.openSession();
         return session;
     }
