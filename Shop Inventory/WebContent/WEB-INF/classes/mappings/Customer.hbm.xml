@@ -1,0 +1,17 @@
+<?xml version="1.0"?> 
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="org.shop.domain.Customer" table="customer">
+		<id column="customer_Id" name="customer_Id" type="java.lang.Long">
+			<generator class="native" />
+		</id>
+		<many-to-one column="address_Id" name="address" unique="true"
+			cascade="all"></many-to-one>
+		<property column="customer_Name" name="customer_Name" type="java.lang.String" />
+		<property column="customer_Phone" name="customer_Phone" type="java.lang.Long" />
+		<property column="customer_Joindate" name="customer_Join_Date"
+			type="java.util.Date" />
+	</class>
+</hibernate-mapping>
