@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.shop.domain.SoldItemDescription" table="solditemsdescription">
+        <id name="item_desc_id" column="item_desc_Id" type="java.lang.Long">
+            <generator class="native"/>
+        </id>
+        <many-to-one name="purchase_id" column="bill_Id" unique="true" cascade="all"></many-to-one>
+        <many-to-one name="item_id" column="item_Id" unique="true" cascade="all"></many-to-one>
+        <property name="quantity" column="quantity" type="java.lang.Integer"></property>
+        <property name="price" column="price" type="java.lang.Double"></property>
+    </class>
+</hibernate-mapping>

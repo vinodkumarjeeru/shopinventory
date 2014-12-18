@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.shop.domain.Transactions" table="transactions">
+        <id name="transaction_Id" column="transaction_Id" type="java.lang.Long">
+            <generator class="native"/>
+        </id>
+        <many-to-one name="purchase_Id" column="bill_Id" unique="true" cascade="all"></many-to-one>
+        <property name="credit" column="credit" type="java.lang.String"></property>
+        <property name="debit" column="debit" type="java.lang.String"></property>
+        <property name="payment_Amount" column="payment_Amount" type="java.util.Date"></property>
+        <property name="remaining_Balance" column="total_Balance" type="java.lang.Double"></property>
+        <property name="date" column="date" type="java.util.Date"></property>
+    </class>
+</hibernate-mapping>
