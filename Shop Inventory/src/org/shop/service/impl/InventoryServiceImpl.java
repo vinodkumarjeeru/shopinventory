@@ -120,7 +120,7 @@ public class InventoryServiceImpl implements InventoryService {
     @Override
     public List<Store> getCompleteStoreData() {
         session = getSession();
-        Query query = session.createQuery("from Customer");
+        Query query = session.createQuery("from Store");
         List<Store> list = query.list();
         session.close();
         return list;
