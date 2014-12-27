@@ -1,7 +1,7 @@
 <%-- 
     Document   : createCustomer
-    Created on : Dec 20, 2014, 9:37:26 AM
-    Author     : Lenovo
+    Created on : 23 Dec, 2014, 10:29:11 AM
+    Author     : 3500512
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,9 +9,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Inventory | Create Customer</title>
+        <title>App | Create Customer</title>
         <link type="text/css" rel="stylesheet" href="css/semantic.min.css"/>
         <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/jquery-ui.min.js"></script>
         <script type="text/javascript" src="js/semantic.min.js"></script>
         <script type="text/javascript">
             $(document).ready(function() {
@@ -19,7 +20,12 @@
                 $('#customerRegForm').hide();
                 $('#checkCustomerBalance').hide();
                 $('#storeItemsList').hide();
+                $('#updateAddress').hide();
                 $('.dropdown').dropdown();
+                $('.ui.vertical.menu').hide();
+                $('.ui.blue.button').click(function() {
+                    $('.ui.vertical.menu').toggle('slide');
+                });
 
                 $('.item').hover(function() {
                     $(this).toggleClass('active');
@@ -36,6 +42,9 @@
                 });
                 $('#vcDetails').bind('click', function() {
                     viewCustomerDetails();
+                });
+                $('#updateAdd').bind('click', function() {
+                    updateAddress();
                 });
 
                 $('.ui.form').form({
@@ -88,15 +97,6 @@
                             }
                         ]
                     },
-                    district: {
-                        identifier: 'district',
-                        rules: [
-                            {
-                                type: 'empty',
-                                prompt: 'please enter district name'
-                            }
-                        ]
-                    },
                     state: {
                         identifier: 'state',
                         rules: [
@@ -105,21 +105,7 @@
                                 prompt: 'please enter state name'
                             }
                         ]
-                    },
-                    pincode: {
-                        identifier: 'pincode',
-                        rules: [
-                            {
-                                type: 'empty',
-                                prompt: 'please enter pin code'
-                            },
-                            {
-                                type: 'length[6]',
-                                prompt: 'please enter correct pincode'
-                            }
-                        ]
                     }
-
                 },
                 {
                     inline: true,
@@ -140,7 +126,7 @@
                     <i class="dropdown icon"></i>
                     Other Options
                     <div class="menu">
-                        <a class="item">Update Address</a>
+                        <a class="item" id="updateAdd">Update Address</a>
                         <a class="item">Update Balance</a>
                         <a class="item">Update Customer</a>
                         <a class="item">Credit Amount</a>
@@ -149,8 +135,39 @@
                 </div>
             </div>
         </div>
+        <!--
+                <div class="ui vertical menu">
+                    <div class="item">
+                        <div class="ui input"><input type="text" placeholder="Search..."></div>
+                    </div>
+                    <div class="item">
+                        <i class="home icon"></i> Home
+                        <div class="menu">
+                            <a class="active item">Search</a>
+                            <a class="item">Add</a>
+                            <a class="item">Remove</a>
+                        </div>
+                    </div>
+                    <a class="item">
+                        <i class="grid layout icon"></i> Browse
+                    </a>
+                    <a class="item">
+                        <i class="mail icon"></i> Messages
+                    </a>
+                    <div class="ui dropdown item">
+                        <i class="dropdown icon"></i>
+                        More
+                        <div class="menu">
+                            <a class="item"><i class="edit icon"></i> Edit Profile</a>
+                            <a class="item"><i class="globe icon"></i> Choose Language</a>
+                            <a class="item"><i class="settings icon"></i> Account Settings</a>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="ui blue button">Click Here</div>-->
         <div class="ui form segment" id="customerRegForm">
-            <form method="POST" action="${pageContext.request.contextPath}/createcustomer">
+            <form method="POST" action="${pageContext.request.contextPath}/mine">
                 <div class="two fields">
                     <div class="field">
                         <label>First name</label>
@@ -168,9 +185,9 @@
                     </div>
                 </div>
                 <div class="field">
-                    <label>Mobile Number:</label>
+                    <label>Mobile Number</label>
                     <div class="ui left icon input">
-                        <input type="number" id="user" name="mobile" placeholder="Mobile Number"/>
+                        <input type="number" id="mobile" name="mobile"/>
                         <i class="mobile icon"></i>
                     </div>
                 </div>
@@ -190,35 +207,16 @@
                         </div>
                     </div>
                     <div class="field">
-                        <label>District Name</label>
-                        <div class="ui left icon input">
-                            <input type="text" id="district" name="district" placeholder="distict Name"/>
-                            <i class="location icon"></i>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="two fields">
-                    <div class="field">
-                        <label>Pin Code</label>
-                        <div class="ui left icon input">
-                            <input type="text" id="user" name="pincode" placeholder="Pin code"/>
-                            <i class="user icon"></i>
-                        </div>
-                    </div>
-                    <div class="field">
                         <label>State Name</label>
                         <div class="ui left icon input">
                             <input type="text" id="state" name="state" placeholder="State Name"/>
                             <i class="location icon"></i>
                         </div>
                     </div>
-
                 </div>
-                <input type="submit" class="ui blue submit button"/>
+                <input type="submit" class="ui blue button" value="Submit"/>
             </form>
         </div>
-
         <div class="ui segment" id="checkCustomerBalance">
             <div class="ui two column middle aligned relaxed fitted stackable grid">
                 <div class="column">
@@ -240,11 +238,9 @@
                         <div class="ui blue button">Check Balance</div>
                     </div>
                 </div>
-
                 <div class="ui vertical divider">
                     (Or)
                 </div>
-
                 <div class="column">
                     <div class="ui form segment">
                         <div class="field">
@@ -297,9 +293,34 @@
                     </tr>
                 </tbody>
             </table>
-
         </div>
-
+        <div class="ui one column middle aligned relaxed fitted stackable grid" id="updateAddress">
+            <div class="column">
+                <div class="ui form segment">
+                    <div class="field">
+                        <label>Customer Id</label>
+                        <div class="ui left icon input">
+                            <input type="text" name="customerId" placeholder="Enter Customer Id"/>
+                            <i class="barcode icon"></i>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Customer Name</label>
+                        <div class="ui left icon input">
+                            <input type="text" name="customerName" placeholder="Enter Customer Name"/>
+                            <i class="user icon"></i>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Phone</label>
+                        <div class="ui left icon input">
+                            <input type="number" name="mobile" id="customerMobile"/>
+                            <i class="mobile icon"></i>
+                        </div>
+                    </div>
+                    <div class="ui blue button">Check User</div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
-
