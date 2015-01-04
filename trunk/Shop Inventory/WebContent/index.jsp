@@ -60,7 +60,8 @@
                         <i class="lock icon"></i>
                     </div>
                 </div>
-                <input type="submit" class="ui blue submit button"/>
+                <input type="submit" class="ui blue button" value="Login"/>
+                <input type="reset" class="ui orange button" value="Clear"/>
             </form>
         </div>
 
