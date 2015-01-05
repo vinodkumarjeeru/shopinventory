@@ -105,6 +105,15 @@
                                 prompt: 'please enter state name'
                             }
                         ]
+                    },
+                    pincode: {
+                        identifier: 'pincode',
+                        rules: [
+                            {
+                                type: 'empty',
+                                prompt: 'please enter pincode'
+                            }
+                        ]
                     }
                 },
                 {
@@ -207,9 +216,25 @@
                         </div>
                     </div>
                     <div class="field">
+                        <label>District Name</label>
+                        <div class="ui left icon input">
+                            <input type="text" id="village" name="district" placeholder="District Name"/>
+                            <i class="star icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="two fields">
+                    <div class="field">
                         <label>State Name</label>
                         <div class="ui left icon input">
                             <input type="text" id="state" name="state" placeholder="State Name"/>
+                            <i class="location icon"></i>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Pin Code</label>
+                        <div class="ui left icon input">
+                            <input type="text" id="pincode" name="pincode" placeholder="Pin Code"/>
                             <i class="location icon"></i>
                         </div>
                     </div>
