@@ -26,5 +26,5 @@ function updateAddress() {
     $('#customerRegForm').hide("slide", {direction: 'right'}, 300);
     $('#checkCustomerBalance').hide("slide", {direction: 'right'}, 300);
     $('#storeItemsList').hide("slide", {direction: 'right'}, 300);
-    $('#updateAddress').toggle("slide", {direction: "left"}, 1000);
+    $('#updateAddress').show("slide", {direction: "left"}, 1000);
 }
