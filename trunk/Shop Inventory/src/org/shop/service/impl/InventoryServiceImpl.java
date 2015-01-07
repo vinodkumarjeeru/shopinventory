@@ -221,4 +221,12 @@ public class InventoryServiceImpl implements InventoryService {
     public static InventoryService getService() {
         return impl;
     }
+
+    @Override
+    public void createCustomer(Customer customer) {
+        session = getSession();
+        Transaction transaction = session.beginTransaction();
+        session.save(customer);
+        closeSession(session, transaction);
+    }
 }
