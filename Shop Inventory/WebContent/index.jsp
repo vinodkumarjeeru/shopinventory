@@ -4,6 +4,7 @@
     Author     : 3500512
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -60,10 +61,14 @@
                         <i class="lock icon"></i>
                     </div>
                 </div>
-                <input type="submit" class="ui blue button" value="Login"/>
-                <input type="reset" class="ui orange button" value="Clear"/>
+                <input type="submit" class="ui blue button" value="Submit"/>
             </form>
         </div>
-
-    </body>
+    <c:if test="${not empty User}">
+        <c:redirect url="checkList.html"/>
+    </c:if>
+    <c:if test="${empty User}">
+        <c:redirect url="createCustomer.html"/>
+    </c:if>
+</body>
 </html>
