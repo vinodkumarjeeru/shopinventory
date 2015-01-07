@@ -20,6 +20,8 @@ import org.shop.domain.Store;
 public interface InventoryService {
 
     public void addInventoryDetails(Inventory inventory);
+    
+    public void createCustomer(Customer customer);
 
     public boolean updateCustomerAddress(int id, Address address);
 
