@@ -28,3 +28,25 @@ function updateAddress() {
     $('#storeItemsList').hide("slide", {direction: 'right'}, 300);
     $('#updateAddress').show("slide", {direction: "left"}, 1000);
 }
+function showLoginModal() {
+    $('.ui.basic.modal').modal('setting', 'closable', false).modal('show');
+}
+function sendData(requestType, urlPattern, data) {
+    var res;
+    $.ajax({
+        type: requestType,
+        url: urlPattern,
+        data: data,
+        success: function(responseText) {
+            res = responseText;
+            if (res != null) {
+                window.location = 'index.jsp';
+                return;
+            }
+            alert("Please enter valid details");
+            return;
+
+        }
+    });
+
+}
