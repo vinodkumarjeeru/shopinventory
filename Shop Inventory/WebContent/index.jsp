@@ -4,8 +4,8 @@
     Author     : 3500512
 --%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -64,11 +64,11 @@
                 <input type="submit" class="ui blue button" value="Submit"/>
             </form>
         </div>
-    <c:if test="${not empty User}">
-        <c:redirect url="checkList.html"/>
-    </c:if>
-    <c:if test="${empty User}">
-        <c:redirect url="createCustomer.html"/>
-    </c:if>
-</body>
+        <c:if test="${not empty User}">
+            <c:redirect url="checkList.html"/>
+        </c:if>
+        <c:if test="${empty User}">
+            <c:redirect url="createCustomer.html"/>
+        </c:if>
+    </body>
 </html>
