@@ -6,10 +6,12 @@ package org.shop.web.controllers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.shop.domain.Administrator;
 import org.shop.web.utils.RootController;
 
 /**
@@ -39,17 +41,22 @@ public class MyController extends RootController {
         
          */
         PrintWriter out = response.getWriter();
-
         String rq = request.getParameter("login");
-
         if (rq.equalsIgnoreCase("Login")) {
+            Administrator admin = new Administrator();
+            String uName = admin.getUsername();
+            String pwd = admin.getPassword();
             String username = request.getParameter("username");
             String password = request.getParameter("password");
             System.out.println(username + password);
-            HttpSession session = request.getSession();
-            session.setAttribute("User", username);
-            response.sendRedirect("index.jsp");
 
+            if (username.equals(uName) && password.equals(pwd)) {
+                HttpSession session = request.getSession();
+                session.setAttribute("Admin", username);
+                response.sendRedirect("TestHome.jsp");
+            }
+            //request.setAttribute("status", "Please enter valid details");
+            //RequestDispatcher dispatcher = request.getRequestDispatcher("/createCustomer.jsp");
         }
 
     }
