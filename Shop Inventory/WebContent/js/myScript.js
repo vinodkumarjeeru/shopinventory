@@ -39,7 +39,7 @@ function sendData(requestType, urlPattern, data) {
         data: data,
         success: function(responseText) {
             res = responseText;
-            if (res != null) {
+            if (res !== null) {
                 window.location = 'index.jsp';
                 return;
             }
@@ -49,4 +49,24 @@ function sendData(requestType, urlPattern, data) {
         }
     });
 
+}
+function showItemsEntry() {
+    $('#totalDiv').hide();
+    var mainDiv = $('<div class="five fields"></div>');
+    var sub1 = $('<div class="field"></div>');
+    var sub2 = $('<div class="field"></div>');
+    var sub3 = $('<div class="field"></div>');
+    var sub4 = $('<div class="field"></div>');
+    var sub5 = $('<div class="field"></div>');
+    $('<input/>').attr({type: 'text', id: 'serialNo', name: 'serialNo', placeholder: 'Serial No'}).appendTo(sub1);
+    $('<input/>').attr({type: 'text', id: 'itemId', name: 'itemId', placeholder: 'Item Id'}).appendTo(sub2);
+    $('<input/>').attr({type: 'text', id: 'itemName', name: 'itemName', placeholder: 'Item Name'}).appendTo(sub3);
+    $('<input/>').attr({type: 'text', id: 'noItems', name: 'noItems', placeholder: 'No.Of Items'}).appendTo(sub4);
+    $('<input/>').attr({type: 'text', id: 'price', name: 'price', placeholder: 'Price'}).appendTo(sub5);
+    $(mainDiv).append(sub1);
+    $(mainDiv).append(sub2);
+    $(mainDiv).append(sub3);
+    $(mainDiv).append(sub4);
+    $(mainDiv).append(sub5);
+    $(mainDiv).insertAfter($('#homeEntry'));
 }
