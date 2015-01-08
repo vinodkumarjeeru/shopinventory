@@ -26,6 +26,13 @@ public class CreateCustomerController extends RootController {
     @Override
     protected void doWork(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        
+        if(request.getParameter("billing").equalsIgnoreCase("credit amount")){
+            System.out.println("Value======"+request.getParameter("custId"));
+            return;
+        }
+        
+        
         String firstname = request.getParameter("firstname");
         String lastname = request.getParameter("lastname");
         String name = firstname + lastname;
@@ -51,8 +58,8 @@ public class CreateCustomerController extends RootController {
 
         InventoryService service = InventoryServiceImpl.getService();
         service.createCustomer(customer);
-        request.setAttribute("status", "New Customer Successfully Created");
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/createCustomer.jsp");
+        request.setAttribute("status", customer);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/customerBilling.jsp");
         dispatcher.forward(request, response);
     }
 }
