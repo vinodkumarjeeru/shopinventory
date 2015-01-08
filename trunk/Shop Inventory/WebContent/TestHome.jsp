@@ -47,7 +47,7 @@
                 $('#updateAdd').bind('click', function() {
                     updateAddress();
                 });
-                
+
                 $('.ui.red.button').click(function() {
                     showLoginModal();
                 });
@@ -323,16 +323,16 @@
                 </div>
             </div>
         </div>
-    <c:if test="${not empty status}">
-        <div class="ui icon message">
-            <i class="notched circle loading icon"></i>
-            <div class="content">
-                <p><c:out value="${status}"/></p>
+        <c:if test="${not empty status}">
+            <div class="ui icon message">
+                <i class="notched circle loading icon"></i>
+                <div class="content">
+                    <p><c:out value="${status}"/></p>
+                </div>
             </div>
-        </div>
-    </c:if>
-                
-                
+        </c:if>
+
+
         <div class="ui red button">Show Modal</div>
         <div class="ui basic modal">
             <i class="close icon"></i>
@@ -340,7 +340,7 @@
                 Administrator Login
             </div>
             <div class="ui form segment">
-                <form method="POST" id="loginForm" action="${pageContext.request.contextPath}/mine">
+                <form method="POST" id="loginForm" action="${pageContext.request.contextPath}/login">
                     <div class="content">
                         <div class="description">
                             <div class="ui header">We've auto-chosen a profile image for you.</div>
@@ -363,11 +363,11 @@
                     </div>
                     <div class="actions">
                         <input type="reset" class="ui green button" value="Clear"/>
-                        <input type="submit" class="ui blue button" value="Login" name="login"/>
+                        <input type="submit" class="ui blue button" value="Login"/>
                     </div>
                 </form>
             </div>
         </div>
 
-</body>
+    </body>
 </html>

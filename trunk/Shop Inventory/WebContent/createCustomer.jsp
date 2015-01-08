@@ -95,6 +95,10 @@
         </script>
     </head>
     <body>
+        <c:if test="${empty Admin}">
+            <c:redirect url="index.jsp"/>
+        </c:if>
+
         <%@include file="sideMenu.jsp" %>
         <div class="ui form segment" id="customerRegForm">
             <form method="POST" action="${pageContext.request.contextPath}/create">
@@ -158,16 +162,6 @@
                 </div>
                 <input type="submit" class="ui blue button" value="Submit"/>
             </form>
-
         </div>
-
-        <c:if test="${not empty status}">
-            <div class="ui icon message">
-                <i class="notched circle loading icon"></i>
-                <div class="content">
-                    <p><c:out value="${status}"/></p>
-                </div>
-            </div>
-        </c:if>
     </body>
 </html>
