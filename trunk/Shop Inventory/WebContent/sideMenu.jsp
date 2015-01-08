@@ -26,44 +26,45 @@
     <body>
         <div class="ui left vertical inverted labeled icon sidebar menu">
             <a class="item" href="${pageContext.request.contextPath}/createCustomer.jsp">
-                <i class="home icon"></i>
+                <i class="users icon"></i>
                 Add Customer
             </a>
+            <a class="item" href="${pageContext.request.contextPath}/customerBilling.jsp">
+                <i class="book icon"></i>
+                Billing
+            </a>
             <a class="item">
-                <i class="block layout icon"></i>
+                <i class="block rupee icon"></i>
                 Check Balance
             </a>
             <a class="item" href="${pageContext.request.contextPath}/viewCustomer.jsp">
-                <i class="smile icon"></i>
+                <i class="user icon"></i>
                 View Customer Details
             </a>
             <a class="item" href="${pageContext.request.contextPath}/updateAddress.jsp">
-                <i class="calendar icon"></i>
+                <i class="home icon"></i>
                 Update Address
             </a>
             <a class="item" href="${pageContext.request.contextPath}/updateCustomer.jsp">
-                <i class="mail icon"></i>
+                <i class="edit icon"></i>
                 Update Customer
             </a>
             <a class="item">
-                <i class="chat icon"></i>
+                <i class="money icon"></i>
                 Update Balance
             </a>
             <a class="item">
-                <i class="trophy icon"></i>
+                <i class="trello icon"></i>
                 Credit Amount
             </a>
             <a class="item">
-                <i class="shop icon"></i>
+                <i class="sort content descending icon"></i>
                 Debit Amount
             </a>
-            <a class="item">
-                <i class="settings icon"></i>
-                Settings
-            </a>
+
         </div>
         <div class="ui blue button">
-            <i class="home icon"></i>Menu
+            <i class="tasks icon"></i>Menu
         </div>
 
     </body>
