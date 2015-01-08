@@ -40,24 +40,23 @@ public class MyController extends RootController {
          HibernateUtils.closeSession(session, transaction);
         
          */
-        PrintWriter out = response.getWriter();
-        String rq = request.getParameter("login");
-        if (rq.equalsIgnoreCase("Login")) {
-            Administrator admin = new Administrator();
-            String uName = admin.getUsername();
-            String pwd = admin.getPassword();
-            String username = request.getParameter("username");
-            String password = request.getParameter("password");
-            System.out.println(username + password);
+        /*PrintWriter out = response.getWriter();
+         String rq = request.getParameter("login");
+         if (rq.equalsIgnoreCase("Login")) {
+         Administrator admin = new Administrator();
+         String uName = admin.getUsername();
+         String pwd = admin.getPassword();
+         String username = request.getParameter("username");
+         String password = request.getParameter("password");
+         System.out.println(username + password);
 
-            if (username.equals(uName) && password.equals(pwd)) {
-                HttpSession session = request.getSession();
-                session.setAttribute("Admin", username);
-                response.sendRedirect("TestHome.jsp");
-            }
-            //request.setAttribute("status", "Please enter valid details");
-            //RequestDispatcher dispatcher = request.getRequestDispatcher("/createCustomer.jsp");
-        }
-
+         if (username.equals(uName) && password.equals(pwd)) {
+         HttpSession session = request.getSession();
+         session.setAttribute("Admin", username);
+         response.sendRedirect("TestHome.jsp");
+         }
+         //request.setAttribute("status", "Please enter valid details");
+         //RequestDispatcher dispatcher = request.getRequestDispatcher("/createCustomer.jsp");
+         }*/
     }
 }
