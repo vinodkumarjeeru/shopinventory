@@ -3,7 +3,7 @@
     <display-name>Shop Inventory</display-name>
      <welcome-file-list>
         <welcome-file>
-            createCustomer.jsp
+            sideMenu.jsp
         </welcome-file>
     </welcome-file-list>
    <servlet>
