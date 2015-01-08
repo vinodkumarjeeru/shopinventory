@@ -16,55 +16,55 @@
         <script type="text/javascript" src="js/semantic.min.js"></script>
         <script type="text/javascript">
             $(document).ready(function() {
-                $('.ui.blue.button').click(function(){
-                     $('.left.sidebar').sidebar('toggle');
+                $('.ui.blue.button').click(function() {
+                    $('.left.sidebar').sidebar('toggle');
                 });
-               
-                        
             });
 
         </script>
     </head>
     <body>
         <div class="ui left vertical inverted labeled icon sidebar menu">
-            <a class="item">
+            <a class="item" href="${pageContext.request.contextPath}/createCustomer.jsp">
                 <i class="home icon"></i>
-                Home
+                Add Customer
             </a>
             <a class="item">
                 <i class="block layout icon"></i>
-                Topics
+                Check Balance
             </a>
-            <a class="item">
+            <a class="item" href="${pageContext.request.contextPath}/viewCustomer.jsp">
                 <i class="smile icon"></i>
-                Friends
+                View Customer Details
             </a>
-            <a class="item">
+            <a class="item" href="${pageContext.request.contextPath}/updateAddress.jsp">
                 <i class="calendar icon"></i>
-                History
+                Update Address
             </a>
-            <a class="item">
+            <a class="item" href="${pageContext.request.contextPath}/updateCustomer.jsp">
                 <i class="mail icon"></i>
-                Messages
+                Update Customer
             </a>
             <a class="item">
                 <i class="chat icon"></i>
-                Discussions
+                Update Balance
             </a>
             <a class="item">
                 <i class="trophy icon"></i>
-                Achievements
+                Credit Amount
             </a>
             <a class="item">
                 <i class="shop icon"></i>
-                Store
+                Debit Amount
             </a>
             <a class="item">
                 <i class="settings icon"></i>
                 Settings
             </a>
         </div>
-        
-        
+        <div class="ui blue button">
+            <i class="home icon"></i>Menu
+        </div>
+
     </body>
 </html>
