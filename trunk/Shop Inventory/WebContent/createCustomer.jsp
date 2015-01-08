@@ -160,7 +160,7 @@
             </form>
 
         </div>
-                <div class="ui blue button">Click Here</div>
+
         <c:if test="${not empty status}">
             <div class="ui icon message">
                 <i class="notched circle loading icon"></i>
