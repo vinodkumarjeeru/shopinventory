@@ -61,14 +61,11 @@
                         <i class="lock icon"></i>
                     </div>
                 </div>
-                <input type="submit" class="ui blue button" value="Submit"/>
+                <input type="submit" class="ui blue button" value="Login" name="login"/>
             </form>
         </div>
-        <c:if test="${not empty User}">
-            <c:redirect url="checkList.html"/>
-        </c:if>
-        <c:if test="${empty User}">
-            <c:redirect url="createCustomer.html"/>
-        </c:if>
+            <c:if test="${not empty status}">
+                <c:out value="${status}"/>
+            </c:if>
     </body>
 </html>
