@@ -18,18 +18,24 @@
             $(document).ready(function() {
                 $.getScript("js/myScript.js");
                 var i = 0;
-                $('#totalDiv').hide();
                 $('.ui.red.button').click(function() {
                     showItemsEntry();
                 });
-                $('.ui.orange.button').click(function() {
-                    $('#totalDiv').show();
+                $(document).on("change", ".billing", function() {
+                    var sum = 0;
+                    $(".billing").each(function() {
+                        sum += +$(this).val();
+                    });
+                    $(".total").val(sum);
                 });
             });
         </script>
     </head>
     <body>
         <%@include file="sideMenu.jsp" %>
+        <c:if test="${empty Admin}">
+            <c:redirect url="home.jsp"/>
+        </c:if>
         <div class="ui form segment" id="customerRegForm">
             <form method="POST" action="${pageContext.request.contextPath}/create">
                 <div class="field">
@@ -42,6 +48,7 @@
                         <i class="user icon"></i>
                     </div>
                 </div>
+
                 <div class="five fields" id="homeEntry">
                     <div class="field">
                         <label style="text-align: center;">Serial No</label>
@@ -55,19 +62,21 @@
                         <label style="text-align: center;">Item Name</label>
                         <input type="text" placeholder="Item Name" name="itemName">
                     </div>
+
                     <div class="field">
                         <label style="text-align: center;">No.Of Items</label>
                         <input type="text" placeholder="No.Of Items" name="noItems">
                     </div>
                     <div class="field">
                         <label style="text-align: center;">Price</label>
-                        <input type="text" placeholder="Price" name="price">
+                        <input type="text" placeholder="Price" name="price" class="billing">
                     </div>
                 </div>
-                <div class="field" id="totalDiv">
+                <div class="field">
                     <label>Total Price</label>
-                    <input type="text" placeholder="Price" name="totalPrice">
+                    <input type="text" placeholder="Price" name="price" class="total">
                 </div>
+
                 <input type="button" class="ui red button" value="Add More"/> 
                 <input type="button" class="ui orange button" value="Total Amount"/>
                 <input type="submit" class="ui blue button" value="Credit Amount" name="billing"/>
