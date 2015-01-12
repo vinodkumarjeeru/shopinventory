@@ -18,6 +18,9 @@
     </head>
     <body>
         <%@include file="sideMenu.jsp" %>
+        <c:if test="${empty Admin}">
+            <c:redirect url="home.jsp"/>
+        </c:if>
         <h1>Address Update</h1>
     </body>
 </html>

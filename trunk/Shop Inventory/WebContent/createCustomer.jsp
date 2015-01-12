@@ -96,7 +96,7 @@
     </head>
     <body>
         <c:if test="${empty Admin}">
-            <c:redirect url="index.jsp"/>
+            <c:redirect url="home.jsp"/>
         </c:if>
 
         <%@include file="sideMenu.jsp" %>
