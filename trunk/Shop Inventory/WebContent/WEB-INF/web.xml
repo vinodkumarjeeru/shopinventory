@@ -3,7 +3,7 @@
     <display-name>Shop Inventory</display-name>
     <welcome-file-list>
         <welcome-file>
-            sideMenu.jsp
+            home.jsp
         </welcome-file>
     </welcome-file-list>
     <servlet>
@@ -29,8 +29,8 @@
         <servlet-class>org.shop.web.controllers.CreateCustomerController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>AdminLogin</servlet-name>
-        <url-pattern>/login</url-pattern>
+        <servlet-name>CreateCustomer</servlet-name>
+        <url-pattern>/create</url-pattern>
     </servlet-mapping>
     
     <servlet>
@@ -38,9 +38,10 @@
         <servlet-class>org.shop.web.controllers.loginController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>CreateCustomer</servlet-name>
-        <url-pattern>/create</url-pattern>
+        <servlet-name>AdminLogin</servlet-name>
+        <url-pattern>/login</url-pattern>
     </servlet-mapping>
+    
     <session-config>
         <session-timeout>
             30
