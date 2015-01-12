@@ -21,22 +21,26 @@ public class loginController extends RootController {
 
     @Override
     protected void doWork(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        Administrator admin = new Administrator();
-        String adminUsername = admin.getUsername();
-        String adminPassword = admin.getPassword();
-        System.out.println(username + password);
-        System.out.println(adminUsername + adminPassword);
 
-        if (adminUsername.equals(username) && adminPassword.equals(password)) {
-            HttpSession session = request.getSession();
-            session.setAttribute("Admin", admin);
-            response.sendRedirect("createCustomer.jsp");
-        } else {
-            request.setAttribute("status", "Login Failure");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/TestHome.jsp");
-            dispatcher.forward(request, response);
+        if (request.getParameter("adminLogin").equalsIgnoreCase("admin login")) {
+
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
+            Administrator admin = new Administrator();
+            String adminUsername = admin.getUsername();
+            String adminPassword = admin.getPassword();
+            System.out.println(username + password);
+            System.out.println(adminUsername + adminPassword);
+
+            if (adminUsername.equals(username) && adminPassword.equals(password)) {
+                HttpSession session = request.getSession();
+                session.setAttribute("Admin", admin);
+                response.sendRedirect("createCustomer.jsp");
+            } else {
+                request.setAttribute("status", "Login Failure");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/home.jsp");
+                dispatcher.forward(request, response);
+            }
         }
 
 
