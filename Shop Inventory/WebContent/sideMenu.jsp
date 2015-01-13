@@ -41,11 +41,7 @@
                 <i class="user icon"></i>
                 View Customer Details
             </a>
-            <a class="item" href="${pageContext.request.contextPath}/updateAddress.jsp">
-                <i class="home icon"></i>
-                Update Address
-            </a>
-            <a class="item" href="${pageContext.request.contextPath}/updateCustomer.jsp">
+                <a class="item" href="${pageContext.request.contextPath}/updateCustomer.jsp">
                 <i class="edit icon"></i>
                 Update Customer
             </a>
@@ -61,7 +57,10 @@
                 <i class="sort content descending icon"></i>
                 Debit Amount
             </a>
-
+            <a class="item" href="${pageContext.request.contextPath}/logout">
+                <i class="sign out icon"></i>
+                Logout
+            </a>
         </div>
         <div class="ui blue button">
             <i class="tasks icon"></i>Menu
