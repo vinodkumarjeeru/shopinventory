@@ -47,15 +47,22 @@ public class InventoryServiceImpl implements InventoryService {
         closeSession(session, transaction);
     }
 
+    public void createCustomer(Customer customer) {
+        session = getSession();
+        Transaction transaction = session.beginTransaction();
+        session.save(customer);
+        closeSession(session, transaction);
+    }
+
     @Override
-    public boolean updateCustomerAddress(int id, Address address) {
+    public boolean updateCustomer(Long id, Customer customer) {
         session = getSession();
         Query query = session.createQuery("from Inventory inventory where inventory.customer_Id=:customer_Id");
         query.setParameter("customer_Id", id);
         Inventory inventory = (Inventory) query.uniqueResult();
         if (inventory != null) {
             Transaction transaction = session.beginTransaction();
-            session.update(address);
+            session.update(customer);
             closeSession(session, transaction);
             return true;
         }
@@ -93,9 +100,20 @@ public class InventoryServiceImpl implements InventoryService {
     }
 
     @Override
+    public Customer findByCustomer(String name, Long phone) {
+        session = getSession();
+        Query query = session.createQuery("from Customer customer where customer.customerName=:custName and customer.phone=:phone");
+        query.setParameter("custName", name);
+        query.setParameter("phone", phone);
+        Customer customer = (Customer) query.uniqueResult();
+        return customer;
+    }
+
+    @Override
     public Store findByItem(Long itemId) {
         session = getSession();
         Query query = session.createQuery("from Store store where store.item_Id=:item_Id");
+        query.setParameter("item_Id", itemId);
         Store store = (Store) query.uniqueResult();
         session.close();
         return store;
@@ -220,13 +238,5 @@ public class InventoryServiceImpl implements InventoryService {
 
     public static InventoryService getService() {
         return impl;
-    }
-
-    @Override
-    public void createCustomer(Customer customer) {
-        session = getSession();
-        Transaction transaction = session.beginTransaction();
-        session.save(customer);
-        closeSession(session, transaction);
     }
 }
