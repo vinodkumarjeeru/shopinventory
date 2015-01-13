@@ -28,7 +28,7 @@ function updateAddress() {
     $('#storeItemsList').hide("slide", {direction: 'right'}, 300);
     $('#updateAddress').show("slide", {direction: "left"}, 1000);
 }
-function showLoginModal() {
+function showModal() {
     $('.ui.basic.modal').modal('setting', 'closable', false).modal('show');
 }
 function sendData(requestType, urlPattern, data) {
