@@ -12,6 +12,8 @@ public class Administrator {
 
     private final String username = "ShopApp";
     private final String password = "TestApp";
+    private final String factoryUsername = "FactoryShopApp";
+    private final String factoryPassword = "FactoryTestApp";
 
     public Administrator() {
     }
@@ -24,8 +26,11 @@ public class Administrator {
         return password;
     }
 
-    @Override
-    public String toString() {
-        return "Administrator{" + "username=" + username + ", password=" + password + '}';
+    public String getFactoryUsername() {
+        return factoryUsername;
+    }
+
+    public String getFactoryPassword() {
+        return factoryPassword;
     }
 }
