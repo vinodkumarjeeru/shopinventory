@@ -5,6 +5,7 @@
 package org.shop.utils;
 
 import org.shop.domain.Address;
+import org.shop.domain.Administrator;
 import org.shop.domain.Transactions;
 import org.shop.domain.Customer;
 import org.shop.domain.Inventory;
@@ -20,6 +21,7 @@ import org.shop.service.impl.InventoryServiceImpl;
 public class InstanceUtils {
 
     private Address address;
+    private Administrator admin;
     private Customer customer;
     private Purchase purchase;
     private Store store;
@@ -29,6 +31,7 @@ public class InstanceUtils {
 
     public InstanceUtils() {
         address = new Address();
+        admin = new Administrator();
         customer = new Customer();
         purchase = new Purchase();
         store = new Store();
@@ -40,6 +43,11 @@ public class InstanceUtils {
     public Address getAddress() {
         System.out.println("Address Hashcode:- " + address.hashCode());
         return address;
+    }
+
+    public Administrator getAdmin() {
+        System.out.println("Admin Hashcode:-" + admin.hashCode());
+        return admin;
     }
 
     public Customer getCustomer() {
