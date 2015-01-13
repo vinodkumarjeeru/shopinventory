@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,7 +19,7 @@
             $(document).ready(function() {
                 $.getScript("js/myScript.js");
                 $('#loginModal').click(function() {
-                    showLoginModal();
+                    showModal();
                 });
 
                 $('a').hover(function() {
@@ -47,50 +48,45 @@
                 </div>
             </div>
         </div>
-    <c:if test="${not empty status}">
-        <div class="ui icon message">
-            <i class="notched circle loading icon"></i>
-            <div class="content">
-                <p><c:out value="${status}"/></p>
+
+        <div class="ui basic modal">
+            <i class="close icon"></i>
+            <div class="header">
+                Administrator Login
             </div>
-        </div>
-    </c:if>
+            <div class="ui form segment">
+                <form method="POST" id="loginForm" action="${pageContext.request.contextPath}/login">
+                    <div class="content">
+                        <div class="description">
+                            <div class="ui header">We've auto-chosen a profile image for you.</div>
 
-
-    <div class="ui basic modal">
-        <i class="close icon"></i>
-        <div class="header">
-            Administrator Login
-        </div>
-        <div class="ui form segment">
-            <form method="POST" id="loginForm" action="${pageContext.request.contextPath}/login">
-                <div class="content">
-                    <div class="description">
-                        <div class="ui header">We've auto-chosen a profile image for you.</div>
-
-                        <div class="field">
-                            <label>Username</label>
-                            <div class="ui left icon input">
-                                <input type="text" id="user" name="username" placeholder="Username"/>
-                                <i class="user icon"></i>
+                            <div class="field">
+                                <label>Username</label>
+                                <div class="ui left icon input">
+                                    <input type="text" id="user" name="username" placeholder="Username"/>
+                                    <i class="user icon"></i>
+                                </div>
                             </div>
-                        </div>
-                        <div class="field">
-                            <label>Password</label>
-                            <div class="ui left icon input">
-                                <input type="password" id="password" name="password" placeholder="Password"/>
-                                <i class="lock icon"></i>
+                            <div class="field">
+                                <label>Password</label>
+                                <div class="ui left icon input">
+                                    <input type="password" id="password" name="password" placeholder="Password"/>
+                                    <i class="lock icon"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="actions">
-                    <input type="reset" class="ui green button" value="Clear"/>
-                    <input type="submit" class="ui blue button" value="Admin Login" name="adminLogin"/>
-                </div>
-            </form>
+                    <div class="actions">
+                        <input type="reset" class="ui green button" value="Clear"/>
+                        <input type="submit" class="ui blue button" value="Admin Login" name="adminLogin"/>
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
+
+    <c:if test="${not empty status}">
+        <p><c:out value="${status}"/></p>
+</c:if>
 
 </body>
 </html>
