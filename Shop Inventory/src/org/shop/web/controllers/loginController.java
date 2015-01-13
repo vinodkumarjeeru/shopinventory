@@ -17,7 +17,7 @@ import org.shop.web.utils.RootController;
  *
  * @author RAM
  */
-public class loginController extends RootController {
+public class LoginController extends RootController {
 
     @Override
     protected void doWork(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
