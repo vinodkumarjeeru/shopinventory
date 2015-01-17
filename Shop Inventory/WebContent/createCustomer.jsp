@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>App | Create Customer</title>
+        <title>Shop Inventory | Create Customer</title>
         <link type="text/css" rel="stylesheet" href="css/semantic.min.css"/>
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/jquery-ui.min.js"></script>
