@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.shop.domain.Address;
 import org.shop.domain.Customer;
+import org.shop.domain.Inventory;
 import org.shop.service.InventoryService;
 import org.shop.service.impl.InventoryServiceImpl;
 import org.shop.utils.InstanceUtils;
@@ -26,12 +27,6 @@ public class CreateCustomerController extends RootController {
     @Override
     protected void doWork(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        
-        if(request.getParameter("billing").equalsIgnoreCase("credit amount")){
-            System.out.println("Value======"+request.getParameter("custId"));
-            return;
-        }
-        
         
         String firstname = request.getParameter("firstname");
         String lastname = request.getParameter("lastname");
@@ -55,9 +50,12 @@ public class CreateCustomerController extends RootController {
         customer.setCustomer_Join_Date(new Date());
         customer.setCustomer_Name(name);
         customer.setCustomer_Phone(mobile);
+        Inventory inventory = utils.getInventory();
+        inventory.setAddress_Id(address);
+        inventory.setCustomer_Id(customer);
 
-        InventoryService service = InventoryServiceImpl.getService();
-        service.createCustomer(customer);
+        InventoryService service = utils.getService();
+        service.addInventoryDetails(inventory);
         request.setAttribute("status", customer);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/customerBilling.jsp");
         dispatcher.forward(request, response);
