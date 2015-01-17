@@ -3,7 +3,7 @@
 	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="org.shop.domain.Store" table="store">
+    <class name="org.shop.domain.Store" table="store" lazy="false">
         <id name="item_Id" column="item_Id" type="java.lang.Long">
             <generator class="native"/>
         </id>
