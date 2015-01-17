@@ -46,6 +46,14 @@
         <servlet-name>LogoutController</servlet-name>
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>UpdateController</servlet-name>
+        <servlet-class>org.shop.web.controllers.UpdateController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateController</servlet-name>
+        <url-pattern>/update</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
