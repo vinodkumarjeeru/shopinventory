@@ -29,9 +29,6 @@ public class LoginController extends RootController {
             Administrator admin = new Administrator();
             String adminUsername = admin.getUsername();
             String adminPassword = admin.getPassword();
-            System.out.println(username + password);
-            System.out.println(adminUsername + adminPassword);
-
             if (adminUsername.equals(username) && adminPassword.equals(password)) {
                 HttpSession session = request.getSession();
                 session.setAttribute("Admin", admin);
