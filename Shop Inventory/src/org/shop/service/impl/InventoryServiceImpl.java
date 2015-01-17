@@ -47,6 +47,7 @@ public class InventoryServiceImpl implements InventoryService {
         closeSession(session, transaction);
     }
 
+    @Override
     public void createCustomer(Customer customer) {
         session = getSession();
         Transaction transaction = session.beginTransaction();
@@ -57,12 +58,12 @@ public class InventoryServiceImpl implements InventoryService {
     @Override
     public boolean updateCustomer(Long id, Customer customer) {
         session = getSession();
-        Query query = session.createQuery("from Inventory inventory where inventory.customer_Id=:customer_Id");
+        Query query = session.createQuery("from Customer customer where customer.customer_Id=:customer_Id");
         query.setParameter("customer_Id", id);
-        Inventory inventory = (Inventory) query.uniqueResult();
-        if (inventory != null) {
+        Customer customer1 = (Customer) query.uniqueResult();
+        if (customer1 != null) {
             Transaction transaction = session.beginTransaction();
-            session.update(customer);
+            session.merge(customer);
             closeSession(session, transaction);
             return true;
         }
@@ -94,6 +95,7 @@ public class InventoryServiceImpl implements InventoryService {
     public Customer findByCustomer(Long inventoryId) {
         session = getSession();
         Query query = session.createQuery("from Inventory inventory where inventory.inventory_Id=:inventory_Id");
+        query.setParameter("inventory_Id", inventoryId);
         Inventory inventory = (Inventory) query.uniqueResult();
         session.close();
         return inventory.getCustomer_Id();
@@ -102,7 +104,7 @@ public class InventoryServiceImpl implements InventoryService {
     @Override
     public Customer findByCustomer(String name, Long phone) {
         session = getSession();
-        Query query = session.createQuery("from Customer customer where customer.customerName=:custName and customer.phone=:phone");
+        Query query = session.createQuery("from Customer customer where customer.customer_Name=:custName and customer.customer_Phone=:phone");
         query.setParameter("custName", name);
         query.setParameter("phone", phone);
         Customer customer = (Customer) query.uniqueResult();
