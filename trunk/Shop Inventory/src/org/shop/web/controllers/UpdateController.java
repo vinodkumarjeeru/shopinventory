@@ -26,8 +26,10 @@ public class UpdateController extends RootController {
     protected void doWork(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         InventoryService service = InventoryServiceImpl.getService();
         if (request.getParameter("action").equalsIgnoreCase("Find Customer")) {
+            System.out.println("Finding Customer");
             String username = request.getParameter("custName");
             Long phone = Long.valueOf(request.getParameter("phone"));
+            System.out.println("Find Customer" + username + phone);
             Customer customer = service.findByCustomer(username, phone);
             if (customer == null) {
                 request.setAttribute("status", "Entered Details are Invalid");
