@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,6 +25,9 @@
         </script>
     </head>
     <body>
+        <c:if test="${empty Admin}">
+            <c:redirect url="home.jsp"/>
+        </c:if>
         <div class="ui left vertical inverted labeled icon sidebar menu">
             <a class="item" href="${pageContext.request.contextPath}/createCustomer.jsp">
                 <i class="users icon"></i>
@@ -37,11 +41,11 @@
                 <i class="block rupee icon"></i>
                 Check Balance
             </a>
-            <a class="item" href="${pageContext.request.contextPath}/viewCustomer.jsp">
-                <i class="user icon"></i>
-                View Customer Details
+            <a class="item" href="${pageContext.request.contextPath}/list?list=customersList">
+                <i class="users icon"></i>
+                View Customers
             </a>
-                <a class="item" href="${pageContext.request.contextPath}/updateCustomer.jsp">
+            <a class="item" href="${pageContext.request.contextPath}/updateCustomer.jsp">
                 <i class="edit icon"></i>
                 Update Customer
             </a>
