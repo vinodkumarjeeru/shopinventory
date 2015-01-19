@@ -14,7 +14,6 @@ import org.shop.domain.Address;
 import org.shop.domain.Customer;
 import org.shop.domain.Inventory;
 import org.shop.service.InventoryService;
-import org.shop.service.impl.InventoryServiceImpl;
 import org.shop.utils.InstanceUtils;
 import org.shop.web.utils.RootController;
 
@@ -27,10 +26,8 @@ public class CreateCustomerController extends RootController {
     @Override
     protected void doWork(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        
-        String firstname = request.getParameter("firstname");
-        String lastname = request.getParameter("lastname");
-        String name = firstname + lastname;
+
+        String customerName = request.getParameter("firstname");
         Long mobile = new Long(request.getParameter("mobile"));
         String door = request.getParameter("door");
         String village = request.getParameter("village");
@@ -48,7 +45,7 @@ public class CreateCustomerController extends RootController {
         address.setVilleageName(village);
         customer.setAddress(address);
         customer.setCustomer_Join_Date(new Date());
-        customer.setCustomer_Name(name);
+        customer.setCustomer_Name(customerName);
         customer.setCustomer_Phone(mobile);
         Inventory inventory = utils.getInventory();
         inventory.setAddress_Id(address);
