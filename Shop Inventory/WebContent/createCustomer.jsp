@@ -27,15 +27,6 @@
                             }
                         ]
                     },
-                    lastname: {
-                        identifier: 'lastname',
-                        rules: [
-                            {
-                                type: 'empty',
-                                prompt: 'please enter lastname'
-                            }
-                        ]
-                    },
                     mobile: {
                         identifier: 'mobile',
                         rules: [
@@ -103,16 +94,9 @@
         <div class="ui form segment" id="customerRegForm">
             <form method="POST" action="${pageContext.request.contextPath}/create">
                 <div class="field">
-                    <label>First name</label>
+                    <label>Customer Name</label>
                     <div class="ui left icon input">
-                        <input type="text" id="fName" name="firstname" placeholder="Username"/>
-                        <i class="user icon"></i>
-                    </div>
-                </div>
-                <div class="field">
-                    <label>Last name</label>
-                    <div class="ui left icon input">
-                        <input type="text" id="lName" name="lastname" placeholder="Lastname"/>
+                        <input type="text" id="fName" name="firstname" placeholder="Customer Name"/>
                         <i class="user icon"></i>
                     </div>
                 </div>
