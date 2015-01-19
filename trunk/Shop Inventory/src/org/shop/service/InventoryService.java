@@ -6,7 +6,6 @@ package org.shop.service;
 
 import java.util.Date;
 import java.util.List;
-import org.shop.domain.Address;
 import org.shop.domain.Transactions;
 import org.shop.domain.Customer;
 import org.shop.domain.Inventory;
