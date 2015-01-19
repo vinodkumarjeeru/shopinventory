@@ -54,6 +54,14 @@
         <servlet-name>UpdateController</servlet-name>
         <url-pattern>/update</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>ListController</servlet-name>
+        <servlet-class>org.shop.web.controllers.ListController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListController</servlet-name>
+        <url-pattern>/list</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
