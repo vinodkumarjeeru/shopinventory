@@ -10,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.apache.log4j.Logger;
 import org.shop.domain.Administrator;
 import org.shop.web.utils.RootController;
 
@@ -18,6 +19,8 @@ import org.shop.web.utils.RootController;
  * @author vinod
  */
 public class LoginController extends RootController {
+
+    final static Logger log = Logger.getLogger(LoginController.class);
 
     @Override
     protected void doWork(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -30,10 +33,12 @@ public class LoginController extends RootController {
             String adminUsername = admin.getUsername();
             String adminPassword = admin.getPassword();
             if (adminUsername.equals(username) && adminPassword.equals(password)) {
+                log.info("Login Successfull.");
                 HttpSession session = request.getSession();
                 session.setAttribute("Admin", admin);
                 response.sendRedirect("createCustomer.jsp");
             } else {
+                log.warn("Login Failure! because invalid data entered.");
                 request.setAttribute("status", "Login Failure");
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/home.jsp");
                 dispatcher.forward(request, response);

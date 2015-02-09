@@ -10,6 +10,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.log4j.Logger;
 import org.shop.domain.Address;
 import org.shop.domain.Customer;
 import org.shop.service.InventoryService;
@@ -22,15 +23,17 @@ import org.shop.web.utils.RootController;
  */
 public class UpdateController extends RootController {
 
+    final static Logger log = Logger.getLogger(UpdateController.class);
+
     @Override
     protected void doWork(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         InventoryService service = InventoryServiceImpl.getService();
         if (request.getParameter("action").equalsIgnoreCase("Find Customer")) {
-            System.out.println("Finding Customer");
             String username = request.getParameter("custName");
             Long phone = Long.valueOf(request.getParameter("phone"));
-            System.out.println("Find Customer" + username + phone);
+            log.debug("Parameters passed:" + username + "" + phone);
             Customer customer = service.findByCustomer(username, phone);
+            log.debug(customer);
             if (customer == null) {
                 request.setAttribute("status", "Entered Details are Invalid");
                 request.getRequestDispatcher("/updateCustomer.jsp").forward(request, response);
@@ -65,7 +68,7 @@ public class UpdateController extends RootController {
             customer.setCustomer_Join_Date(new Date());
             customer.setCustomer_Name(name);
             customer.setCustomer_Phone(mobile);
-
+            log.info("Data Updated Successfully");
             service.updateCustomer(customer.getCustomer_Id(), customer);
             request.setAttribute("status", "Customer Data Updated Successfully");
             RequestDispatcher dispatcher = request.getRequestDispatcher("/updateCustomer.jsp");
