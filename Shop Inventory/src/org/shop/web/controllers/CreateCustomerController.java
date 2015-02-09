@@ -10,6 +10,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.log4j.Logger;
 import org.shop.domain.Address;
 import org.shop.domain.Customer;
 import org.shop.domain.Inventory;
@@ -22,6 +23,8 @@ import org.shop.web.utils.RootController;
  * @author Lenovo
  */
 public class CreateCustomerController extends RootController {
+
+    final static Logger log = Logger.getLogger(CreateCustomerController.class);
 
     @Override
     protected void doWork(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -53,6 +56,7 @@ public class CreateCustomerController extends RootController {
 
         InventoryService service = utils.getService();
         service.addInventoryDetails(inventory);
+        log.info("Data Successfully Submitted into the database");
         request.setAttribute("status", customer);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/customerBilling.jsp");
         dispatcher.forward(request, response);

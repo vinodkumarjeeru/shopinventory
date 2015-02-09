@@ -9,6 +9,7 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.log4j.Logger;
 import org.shop.domain.Customer;
 import org.shop.service.InventoryService;
 import org.shop.utils.InstanceUtils;
@@ -20,13 +21,17 @@ import org.shop.web.utils.RootController;
  */
 public class ListController extends RootController {
 
+    final static Logger log = Logger.getLogger(ListController.class);
+
     @Override
     protected void doWork(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         if (request.getParameter("list").equalsIgnoreCase("customersList")) {
             if (request.getSession().getAttribute("Admin") == null) {
+                log.info("Addmin Object Not Avaliable");
                 response.sendRedirect("home.jsp");
             } else {
+                log.info("Admin Object avaliabled.");
                 InstanceUtils utils = new InstanceUtils();
                 InventoryService service = utils.getService();
                 List<Customer> list = service.getAllCustomers();
