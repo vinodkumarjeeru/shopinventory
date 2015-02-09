@@ -6,6 +6,14 @@
             home.jsp
         </welcome-file>
     </welcome-file-list>
+    <context-param>
+        <param-name>log4j-config</param-name>
+        <param-value>WEB-INF/log4j.xml</param-value>
+    </context-param>
+    <listener>
+        <description>ServletContextListener</description>
+        <listener-class>org.shop.web.utils.ApplicationListener</listener-class>
+    </listener>
     <servlet>
         <servlet-name>RootServlet</servlet-name>
         <servlet-class>org.shop.web.utils.RootController</servlet-class>
