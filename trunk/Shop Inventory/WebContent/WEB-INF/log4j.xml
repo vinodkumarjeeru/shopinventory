@@ -24,7 +24,7 @@
 	</category>
 
 	<category name="java.sql">
-		<priority value="debug" />
+		<priority value="DEBUG" />
 	</category>
 
 	<logger name="RaviProject">

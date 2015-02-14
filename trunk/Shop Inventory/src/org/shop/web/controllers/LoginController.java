@@ -25,7 +25,6 @@ public class LoginController extends RootController {
     @Override
     protected void doWork(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        if (request.getParameter("adminLogin").equalsIgnoreCase("admin login")) {
 
             String username = request.getParameter("username");
             String password = request.getParameter("password");
@@ -40,10 +39,9 @@ public class LoginController extends RootController {
             } else {
                 log.warn("Login Failure! because invalid data entered.");
                 request.setAttribute("status", "Login Failure");
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/home.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
                 dispatcher.forward(request, response);
             }
-        }
 
 
 
