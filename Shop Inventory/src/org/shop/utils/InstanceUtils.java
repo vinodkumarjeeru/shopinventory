@@ -41,42 +41,34 @@ public class InstanceUtils {
     }
 
     public Address getAddress() {
-        System.out.println("Address Hashcode:- " + address.hashCode());
         return address;
     }
 
     public Administrator getAdmin() {
-        System.out.println("Admin Hashcode:-" + admin.hashCode());
         return admin;
     }
 
     public Customer getCustomer() {
-        System.out.println("Customer Hashcode:- " + customer.hashCode());
         return customer;
     }
 
     public Purchase getPurchase() {
-        System.out.println("Purchase Hashcode:- " + purchase.hashCode());
         return purchase;
     }
 
     public Store getStore() {
-        System.out.println("Store Hashcode:- " + store.hashCode());
         return store;
     }
 
     public Transactions getBalance() {
-        System.out.println("Balance Hashcode:- " + balance.hashCode());
         return balance;
     }
 
     public Inventory getInventory() {
-        System.out.println("Inventory Hashcode:- " + inventory.hashCode());
         return inventory;
     }
 
     public InventoryService getService() {
-        System.out.println("Inventory Service Hashcode:- " + service.hashCode());
         return service;
     }
 }

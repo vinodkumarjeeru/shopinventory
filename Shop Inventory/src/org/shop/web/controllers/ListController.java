@@ -31,10 +31,10 @@ public class ListController extends RootController {
                 log.info("Addmin Object Not Avaliable");
                 response.sendRedirect("home.jsp");
             } else {
-                log.info("Admin Object avaliabled.");
                 InstanceUtils utils = new InstanceUtils();
                 InventoryService service = utils.getService();
                 List<Customer> list = service.getAllCustomers();
+                log.info("Customers List:-"+list.size());
                 request.setAttribute("studentList", list);
                 request.getRequestDispatcher("/viewCustomers.jsp").forward(request, response);
             }

@@ -11,61 +11,78 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <link type="text/css" rel="stylesheet" href="css/semantic.min.css"/>
+        <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
         <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="js/semantic.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript">
             $(document).ready(function() {
-                $('.ui.form').form({
-                    username: {
-                        identifier: 'username',
-                        rules: [
-                            {
-                                type: 'empty',
-                                prompt: 'Please enter a username'
-                            }
-                        ]
-                    },
-                    password: {
-                        identifier: 'password',
-                        rules: [
-                            {
-                                type: 'empty',
-                                prompt: 'Please enter a password'
-                            },
-                            {
-                                type: 'length[6]',
-                                prompt: 'Your password must be at least 6 characters'
-                            }
-                        ]
-                    }
-                });
+
             });
 
         </script>
     </head>
     <body>
-        <div class="ui form segment">
-            <form method="POST" action="${pageContext.request.contextPath}/mine">
-                <div class="field">
-                    <label>Username</label>
-                    <div class="ui left icon input">
-                        <input type="text" id="user" name="username" placeholder="Username"/>
-                        <i class="user icon"></i>
-                    </div>
+
+
+
+        <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a href="#loginModal" class="navbar-brand" data-toggle="modal">Login</a>
                 </div>
-                <div class="field">
-                    <label>Password</label>
-                    <div class="ui left icon input">
-                        <input type="password" id="password" name="password" placeholder="Password"/>
-                        <i class="lock icon"></i>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" id="timeElement">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+
+
+        <div id="loginModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Enter Information</h4>
                     </div>
+                    <form method="post" action="${pageContext.request.contextPath}/login">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="text" class="form-control" id="username" name="username" placeholder="Username"/>
+                            </div>
+                            <div class="form-group">
+                                <label >Password</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Password"/>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" value="Login" class="btn btn-success"/>
+                            <input type="reset" value="Clear" class="btn btn-info"/>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </form>
                 </div>
-                <input type="submit" class="ui blue button" value="Login" name="login"/>
-            </form>
+            </div>
         </div>
-            <c:if test="${not empty status}">
-                <c:out value="${status}"/>
-            </c:if>
+        <c:if test="${not empty status}">
+            <p><c:out value="${status}"/></p>
+        </c:if>
+        <nav role="navigation" class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a href="#" class="navbar-brand">Brand</a>
+                </div>
+                <!-- Collection of nav links and other content for toggling -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+
+
+
+
     </body>
 </html>

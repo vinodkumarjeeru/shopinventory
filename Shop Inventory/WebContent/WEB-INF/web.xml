@@ -3,7 +3,7 @@
     <display-name>Shop Inventory</display-name>
     <welcome-file-list>
         <welcome-file>
-            home.jsp
+            index.jsp
         </welcome-file>
     </welcome-file-list>
     <context-param>
@@ -21,14 +21,6 @@
     <servlet-mapping>
         <servlet-name>RootServlet</servlet-name>
         <url-pattern>/RootController</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>MyController</servlet-name>
-        <servlet-class>org.shop.web.controllers.MyController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>MyController</servlet-name>
-        <url-pattern>/mine</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>CreateCustomer</servlet-name>
