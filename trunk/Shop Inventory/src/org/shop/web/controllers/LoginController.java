@@ -39,7 +39,7 @@ public class LoginController extends RootController {
             } else {
                 log.warn("Login Failure! because invalid data entered.");
                 request.setAttribute("status", "Login Failure");
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/home.jsp");
                 dispatcher.forward(request, response);
             }
 
