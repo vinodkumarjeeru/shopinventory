@@ -28,7 +28,7 @@ public class ListController extends RootController {
 
         if (request.getParameter("list").equalsIgnoreCase("customersList")) {
             if (request.getSession().getAttribute("Admin") == null) {
-                log.info("Addmin Object Not Avaliable");
+                log.info("Admin Object Not Avaliable");
                 response.sendRedirect("home.jsp");
             } else {
                 InstanceUtils utils = new InstanceUtils();

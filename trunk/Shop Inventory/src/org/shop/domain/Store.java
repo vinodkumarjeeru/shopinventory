@@ -5,7 +5,6 @@
 package org.shop.domain;
 
 import java.util.Date;
-import java.util.Objects;
 
 /**
  *
@@ -15,7 +14,7 @@ public class Store {
 
     private Long item_Id;
     private String item_Name;
-    private int total_Items;
+    private int quantity;
     private Date storage_Date;
     private double price;
     private int soldItems;
@@ -27,7 +26,7 @@ public class Store {
     public Store(Long item_Id, String item_Name, int total_Items, Date storage_Date, double price, int soldItems, int remainingItems) {
         this.item_Id = item_Id;
         this.item_Name = item_Name;
-        this.total_Items = total_Items;
+        this.quantity = total_Items;
         this.storage_Date = storage_Date;
         this.price = price;
         this.soldItems = soldItems;
@@ -50,12 +49,12 @@ public class Store {
         this.item_Name = item_Name;
     }
 
-    public int getTotal_Items() {
-        return total_Items;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setTotal_Items(int total_Items) {
-        this.total_Items = total_Items;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public Date getStorage_Date() {
@@ -91,46 +90,6 @@ public class Store {
     }
 
     @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 61 * hash + Objects.hashCode(this.item_Id);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Store other = (Store) obj;
-        if (this.item_Id != other.item_Id && (this.item_Id == null || !this.item_Id.equals(other.item_Id))) {
-            return false;
-        }
-        if ((this.item_Name == null) ? (other.item_Name != null) : !this.item_Name.equals(other.item_Name)) {
-            return false;
-        }
-        if (this.total_Items != other.total_Items) {
-            return false;
-        }
-        if (this.storage_Date != other.storage_Date && (this.storage_Date == null || !this.storage_Date.equals(other.storage_Date))) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.price) != Double.doubleToLongBits(other.price)) {
-            return false;
-        }
-        if (this.soldItems != other.soldItems) {
-            return false;
-        }
-        if (this.remainingItems != other.remainingItems) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append("Store [item_Id=");
@@ -138,7 +97,7 @@ public class Store {
         builder.append(", item_Name=");
         builder.append(item_Name);
         builder.append(", total_Items=");
-        builder.append(total_Items);
+        builder.append(quantity);
         builder.append(", storage_Date=");
         builder.append(storage_Date);
         builder.append(", price=");

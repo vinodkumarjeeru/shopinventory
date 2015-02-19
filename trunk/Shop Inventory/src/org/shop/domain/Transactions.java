@@ -5,7 +5,6 @@
 package org.shop.domain;
 
 import java.util.Date;
-import java.util.Objects;
 
 /**
  *
@@ -88,13 +87,6 @@ public class Transactions {
 
     public void setDate(Date date) {
         this.date = date;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 89 * hash + Objects.hashCode(this.transaction_Id);
-        return hash;
     }
 
     @Override

@@ -4,8 +4,6 @@
  */
 package org.shop.domain;
 
-import java.util.Objects;
-
 /**
  *
  * @author 3500512
@@ -15,14 +13,16 @@ public class Inventory {
     private Long inventory_Id;
     private Customer customer_Id;
     private Address address_Id;
+    private Purchase bill_Id;
 
     public Inventory() {
     }
 
-    public Inventory(Long inventory_Id, Customer customer_Id, Address address_Id) {
+    public Inventory(Long inventory_Id, Customer customer_Id, Address address_Id, Purchase bill_Id) {
         this.inventory_Id = inventory_Id;
         this.customer_Id = customer_Id;
         this.address_Id = address_Id;
+        this.bill_Id = bill_Id;
     }
 
     public Long getInventory_Id() {
@@ -49,11 +49,12 @@ public class Inventory {
         this.address_Id = address_Id;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 37 * hash + Objects.hashCode(this.inventory_Id);
-        return hash;
+    public Purchase getBill_Id() {
+        return bill_Id;
+    }
+
+    public void setBill_Id(Purchase bill_Id) {
+        this.bill_Id = bill_Id;
     }
 
     @Override
@@ -65,7 +66,10 @@ public class Inventory {
         builder.append(customer_Id);
         builder.append(", address_Id=");
         builder.append(address_Id);
+        builder.append(", bill_Id=");
+        builder.append(bill_Id);
         builder.append("]");
+        
         return builder.toString();
     }
 }
