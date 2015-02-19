@@ -5,7 +5,6 @@
 package org.shop.domain;
 
 import java.util.Date;
-import java.util.Objects;
 
 /**
  *
@@ -70,39 +69,6 @@ public class Customer {
         this.customer_Join_Date = customer_Join_Date;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 97 * hash + Objects.hashCode(this.customer_Id);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Customer other = (Customer) obj;
-        if (!Objects.equals(this.customer_Id, other.customer_Id)) {
-            return false;
-        }
-        if (!Objects.equals(this.address, other.address)) {
-            return false;
-        }
-        if (!Objects.equals(this.customer_Name, other.customer_Name)) {
-            return false;
-        }
-        if (!Objects.equals(this.customer_Phone, other.customer_Phone)) {
-            return false;
-        }
-        if (!Objects.equals(this.customer_Join_Date, other.customer_Join_Date)) {
-            return false;
-        }
-        return true;
-    }
 
     @Override
     public String toString() {

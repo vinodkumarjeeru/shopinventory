@@ -23,13 +23,10 @@ public class LogoutController extends RootController {
     @Override
     protected void doWork(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Administrator admin = (Administrator) request.getSession().getAttribute("Admin");
-        if (admin == null) {
-            log.warn("Session already expired");
-            response.sendRedirect("/home.jsp");
-        }
         request.getSession().removeAttribute("Admin");
-        log.info("Session Attribute removed");
-        request.setAttribute("status", "You are successfully logged out");
-        request.getRequestDispatcher("/home.jsp").forward(request, response);
+        log.info("Successfully logged out");
+        response.sendRedirect("home.jsp");
+        //request.setAttribute("status", "Successfully logged out");
+        //request.getRequestDispatcher("/home.jsp").forward(request, response);
     }
 }

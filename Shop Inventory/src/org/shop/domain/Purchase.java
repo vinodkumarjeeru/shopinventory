@@ -5,7 +5,6 @@
 package org.shop.domain;
 
 import java.util.Date;
-import java.util.Objects;
 
 /**
  *
@@ -15,19 +14,21 @@ public class Purchase {
 
     private Long bill_Id;
     private Customer customer_Id;
-    private Store item_Id;
     private Date purchase_Date;
-    private SoldItemDescription sid;
+    private double rate;
+    private double price;
+    private double totalSum;
 
     public Purchase() {
     }
 
-    public Purchase(Long bill_Id, Customer customer_Id, Store item_Id, Date purchase_Date, SoldItemDescription sid) {
+    public Purchase(Long bill_Id, Customer customer_Id, Date purchase_Date, double rate, double price, double totalSum) {
         this.bill_Id = bill_Id;
         this.customer_Id = customer_Id;
-        this.item_Id = item_Id;
         this.purchase_Date = purchase_Date;
-        this.sid = sid;
+        this.rate = rate;
+        this.price = price;
+        this.totalSum = totalSum;
     }
 
     public Long getBill_Id() {
@@ -46,14 +47,6 @@ public class Purchase {
         this.customer_Id = customer_Id;
     }
 
-    public Store getItem_Id() {
-        return item_Id;
-    }
-
-    public void setItem_Id(Store item_Id) {
-        this.item_Id = item_Id;
-    }
-
     public Date getPurchase_Date() {
         return purchase_Date;
     }
@@ -62,43 +55,28 @@ public class Purchase {
         this.purchase_Date = purchase_Date;
     }
 
-    public SoldItemDescription getSid() {
-        return sid;
+    public double getRate() {
+        return rate;
     }
 
-    public void setSid(SoldItemDescription sid) {
-        this.sid = sid;
+    public void setRate(double rate) {
+        this.rate = rate;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 11 * hash + Objects.hashCode(this.bill_Id);
-        return hash;
+    public double getPrice() {
+        return price;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Purchase other = (Purchase) obj;
-        if (this.bill_Id != other.bill_Id && (this.bill_Id == null || !this.bill_Id.equals(other.bill_Id))) {
-            return false;
-        }
-        if (this.customer_Id != other.customer_Id && (this.customer_Id == null || !this.customer_Id.equals(other.customer_Id))) {
-            return false;
-        }
-        if (this.item_Id != other.item_Id && (this.item_Id == null || !this.item_Id.equals(other.item_Id))) {
-            return false;
-        }
-        if (this.purchase_Date != other.purchase_Date && (this.purchase_Date == null || !this.purchase_Date.equals(other.purchase_Date))) {
-            return false;
-        }
-        return true;
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public double getTotalSum() {
+        return totalSum;
+    }
+
+    public void setTotalSum(double totalSum) {
+        this.totalSum = totalSum;
     }
 
     @Override
@@ -108,12 +86,14 @@ public class Purchase {
         builder.append(bill_Id);
         builder.append(", customer_Id=");
         builder.append(customer_Id);
-        builder.append(", item_Id=");
-        builder.append(item_Id);
         builder.append(", purchase_Date=");
         builder.append(purchase_Date);
-        builder.append(", Sold_ItemDescription_Id=");
-        builder.append(sid);
+        builder.append(", rate=");
+        builder.append(rate);
+        builder.append(", price=");
+        builder.append(price);
+        builder.append(", totalSum=");
+        builder.append(totalSum);
         builder.append("]");
         return builder.toString();
     }
