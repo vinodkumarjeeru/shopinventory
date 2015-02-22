@@ -37,14 +37,14 @@
             <c:redirect url="home.jsp"/>
         </c:if>
         <div class="ui form segment" id="customerRegForm">
-            <form method="POST" action="${pageContext.request.contextPath}/create">
+            <form method="POST" action="${pageContext.request.contextPath}/billing">
                 <div class="field">
                     <label>Customer Id</label>
                     <div class="ui left icon input">
                         <c:if test="empty status">
                             <c:out value="status"/>
                         </c:if>
-                        <input type="text" id="cId" name="custId" placeholder="Customer Id" value="${status.customer_Name}"/>
+                        <input type="number" id="cId" name="custId" placeholder="Customer Id" value="${status.customer_Name}"/>
                         <i class="user icon"></i>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                 <div class="five fields" id="homeEntry">
                     <div class="field">
                         <label style="text-align: center;">Serial No</label>
-                        <input type="text" placeholder="Serial No" name="serialNo">
+                        <input type="number" placeholder="Serial No" name="serialNo">
                     </div>
                     <div class="field">
                         <label style="text-align: center;">Item Id</label>
@@ -65,16 +65,16 @@
 
                     <div class="field">
                         <label style="text-align: center;">No.Of Items</label>
-                        <input type="text" placeholder="No.Of Items" name="noItems">
+                        <input type="number" placeholder="No.Of Items" name="noItems">
                     </div>
                     <div class="field">
                         <label style="text-align: center;">Price</label>
-                        <input type="text" placeholder="Price" name="price" class="billing">
+                        <input type="number" placeholder="Price" name="ItemsPrice" class="billing">
                     </div>
                 </div>
                 <div class="field">
                     <label>Total Price</label>
-                    <input type="text" placeholder="Price" name="price" class="total">
+                    <input type="text" placeholder="Price" name="totalPrice" class="total">
                 </div>
 
                 <input type="button" class="ui red button" value="Add More"/> 
