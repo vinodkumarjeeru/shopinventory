@@ -62,6 +62,14 @@
         <servlet-name>ListController</servlet-name>
         <url-pattern>/list</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>CustomerBillingController</servlet-name>
+        <servlet-class>org.shop.web.controllers.CustomerBillingController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CustomerBillingController</servlet-name>
+        <url-pattern>/billing</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
