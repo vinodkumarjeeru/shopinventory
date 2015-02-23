@@ -5,11 +5,11 @@
 package org.shop.service.impl;
 
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.shop.domain.Address;
 import org.shop.domain.Transactions;
 import org.shop.domain.Customer;
 import org.shop.domain.Inventory;
@@ -44,6 +44,14 @@ public class InventoryServiceImpl implements InventoryService {
         session = getSession();
         Transaction transaction = session.beginTransaction();
         session.save(inventory);
+        closeSession(session, transaction);
+    }
+
+    @Override
+    public void updateInventoryDetails(Inventory inventory) {
+        session = getSession();
+        Transaction transaction = session.beginTransaction();
+        session.merge(inventory);
         closeSession(session, transaction);
     }
 
@@ -92,10 +100,36 @@ public class InventoryServiceImpl implements InventoryService {
     }
 
     @Override
-    public Customer findByCustomer(Long inventoryId) {
+    public Inventory getInventory(long inventory_Id) {
+        session = getSession();
+        Query query = session.createQuery("from Inventory");
+        List<Inventory> list = query.list();
+        session.close();
+        Iterator<Inventory> iterator = list.iterator();
+        while (iterator.hasNext()) {
+            Inventory inventory = iterator.next();
+            if (inventory_Id == inventory.getCustomer_Id().getCustomer_Id()) {
+                return inventory;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public Customer findByCustomer(String name) {
+        session = getSession();
+        Query query = session.createQuery("from Customer customer where customer.customer_Name=:customer_Name");
+        query.setParameter("customer_Name", name);
+        Customer customer = (Customer) query.uniqueResult();
+        session.close();
+        return customer;
+    }
+
+    @Override
+    public Customer findByCustomer(long inventory_Id) {
         session = getSession();
         Query query = session.createQuery("from Inventory inventory where inventory.inventory_Id=:inventory_Id");
-        query.setParameter("inventory_Id", inventoryId);
+        query.setParameter("inventory_Id", inventory_Id);
         Inventory inventory = (Inventory) query.uniqueResult();
         session.close();
         return inventory.getCustomer_Id();

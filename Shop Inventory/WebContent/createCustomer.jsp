@@ -140,7 +140,7 @@
                 <div class="field">
                     <label>Pin Code</label>
                     <div class="ui left icon input">
-                        <input type="text" id="pincode" name="pincode" placeholder="Pin Code"/>
+                        <input type="number" id="pincode" name="pincode" placeholder="Pin Code"/>
                         <i class="location icon"></i>
                     </div>
                 </div>

@@ -19,6 +19,8 @@ import org.shop.domain.Store;
 public interface InventoryService {
 
     public void addInventoryDetails(Inventory inventory);
+    
+    public void updateInventoryDetails(Inventory inventory);
 
     public void createCustomer(Customer customer);
 
@@ -27,8 +29,12 @@ public interface InventoryService {
     public boolean updateStoreItems(int id, Store store);
 
     public boolean updateBalanceData(int id, Transactions balance);
+    
+    public Inventory getInventory(long id);
 
-    public Customer findByCustomer(Long userId);
+    public Customer findByCustomer(String name);
+    
+    public Customer findByCustomer(long id);
 
     public Customer findByCustomer(String name, Long phone);
 
