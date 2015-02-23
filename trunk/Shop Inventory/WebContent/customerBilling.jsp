@@ -39,14 +39,17 @@
         <div class="ui form segment" id="customerRegForm">
             <form method="POST" action="${pageContext.request.contextPath}/billing">
                 <div class="field">
-                    <label>Customer Id</label>
+                    <label>Customer Name</label>
                     <div class="ui left icon input">
                         <c:if test="empty status">
                             <c:out value="status"/>
                         </c:if>
-                        <input type="number" id="cId" name="custId" placeholder="Customer Id" value="${status.customer_Name}"/>
+                        <input type="text" id="cId" name="custName" placeholder="Customer Name" value="${status.customer_Name}"/>
                         <i class="user icon"></i>
                     </div>
+                    <c:if test="not empty errorMsg">
+                        <c:out value="errorMsg"/>
+                    </c:if>
                 </div>
 
                 <div class="five fields" id="homeEntry">

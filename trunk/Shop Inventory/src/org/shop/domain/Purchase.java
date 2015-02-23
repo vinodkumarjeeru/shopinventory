@@ -15,19 +15,15 @@ public class Purchase {
     private Long bill_Id;
     private Customer customer_Id;
     private Date purchase_Date;
-    private double rate;
-    private double price;
     private double totalSum;
 
     public Purchase() {
     }
 
-    public Purchase(Long bill_Id, Customer customer_Id, Date purchase_Date, double rate, double price, double totalSum) {
+    public Purchase(Long bill_Id, Customer customer_Id, Date purchase_Date, double totalSum) {
         this.bill_Id = bill_Id;
         this.customer_Id = customer_Id;
         this.purchase_Date = purchase_Date;
-        this.rate = rate;
-        this.price = price;
         this.totalSum = totalSum;
     }
 
@@ -55,22 +51,6 @@ public class Purchase {
         this.purchase_Date = purchase_Date;
     }
 
-    public double getRate() {
-        return rate;
-    }
-
-    public void setRate(double rate) {
-        this.rate = rate;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
     public double getTotalSum() {
         return totalSum;
     }
@@ -88,10 +68,6 @@ public class Purchase {
         builder.append(customer_Id);
         builder.append(", purchase_Date=");
         builder.append(purchase_Date);
-        builder.append(", rate=");
-        builder.append(rate);
-        builder.append(", price=");
-        builder.append(price);
         builder.append(", totalSum=");
         builder.append(totalSum);
         builder.append("]");

@@ -9,5 +9,6 @@
         </id>
         <many-to-one name="customer_Id" column="customer_Id" unique="true" cascade="all"></many-to-one>
         <many-to-one name="address_Id" column="address_Id" unique="true" cascade="all"></many-to-one>
+        <many-to-one name="bill_Id" column="bill_Id" unique="true" cascade="all"></many-to-one>
     </class>
 </hibernate-mapping>

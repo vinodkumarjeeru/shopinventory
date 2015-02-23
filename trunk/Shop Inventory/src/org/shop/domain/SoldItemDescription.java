@@ -13,14 +13,18 @@ public class SoldItemDescription {
     private Purchase bill_Id;
     private Store item_Id;
     private long quantity;
+    private double rate;
+    private double price;
 
     public SoldItemDescription() {
     }
 
-    public SoldItemDescription(Purchase bill_Id, Store item_Id, long quantity) {
+    public SoldItemDescription(Purchase bill_Id, Store item_Id, long quantity, double rate, double price) {
         this.bill_Id = bill_Id;
         this.item_Id = item_Id;
         this.quantity = quantity;
+        this.rate = rate;
+        this.price = price;
     }
 
     public Purchase getBill_Id() {
@@ -45,6 +49,22 @@ public class SoldItemDescription {
 
     public void setQuantity(long quantity) {
         this.quantity = quantity;
+    }
+
+    public double getRate() {
+        return rate;
+    }
+
+    public void setRate(double rate) {
+        this.rate = rate;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     @Override
