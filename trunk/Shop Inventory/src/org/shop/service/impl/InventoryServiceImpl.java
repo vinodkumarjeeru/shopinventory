@@ -38,7 +38,7 @@ public class InventoryServiceImpl implements InventoryService {
     }
 
     private void closeSession(Session s, Transaction t) {
-        HibernateUtils.closeSession(session, t);
+        HibernateUtils.closeSession(s, t);
     }
 
     @Override

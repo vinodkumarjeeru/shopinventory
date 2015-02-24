@@ -21,7 +21,7 @@ public interface InventoryService {
     public void addInventoryDetails(Inventory inventory);
 
     public void updateInventoryDetails(Inventory inventory);
-
+    
     public void createCustomer(Customer customer);
 
     public void addItemsToStore(Store store);
