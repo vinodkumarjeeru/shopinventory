@@ -70,6 +70,22 @@
         <servlet-name>CustomerBillingController</servlet-name>
         <url-pattern>/billing</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>StoreController</servlet-name>
+        <servlet-class>org.shop.web.controllers.StoreController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StoreController</servlet-name>
+        <url-pattern>/store</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AjaxController</servlet-name>
+        <servlet-class>org.shop.web.controllers.AjaxController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AjaxController</servlet-name>
+        <url-pattern>/getinfo</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

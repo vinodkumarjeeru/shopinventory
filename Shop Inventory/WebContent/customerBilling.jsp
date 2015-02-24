@@ -28,6 +28,29 @@
                     });
                     $(".total").val(sum);
                 });
+
+                $("#cId").on("input", function() {
+                    var options = {};
+                    options.url = "${pageContext.request.contextPath}/getinfo?info=names";
+                    options.type = "GET";
+                    options.data = {"criteria": $("#cId").val()};
+                    options.success = function(data) {
+                        var names = data.split(",");
+                        if (names.length != 0) {
+                            $("#custNames").empty();
+                            for (var i = 0; i < names.length; i++)
+                            {
+                                $("#custNames").append("<option value='" +
+                                        names[i].names + "'></option>");
+                            }
+                        }
+                    },
+                            options.error = function(error) {
+                        console.log("Error Occured...." + error);
+                    };
+                    $.ajax(options);
+                });
+
             });
         </script>
     </head>
@@ -44,7 +67,8 @@
                         <c:if test="empty status">
                             <c:out value="status"/>
                         </c:if>
-                        <input type="text" id="cId" name="custName" placeholder="Customer Name" value="${status.customer_Name}"/>
+                        <input type="text" id="cId" name="custName" list="custNames" placeholder="Customer Name" value="${status.customer_Name}"/>
+                        <datalist id="custNames"></datalist>
                         <i class="user icon"></i>
                     </div>
                     <c:if test="not empty errorMsg">
@@ -55,29 +79,35 @@
                 <div class="five fields" id="homeEntry">
                     <div class="field">
                         <label style="text-align: center;">Serial No</label>
-                        <input type="number" placeholder="Serial No" name="serialNo">
+                        <input type="number" placeholder="Serial No" name="serialNo"/>
                     </div>
                     <div class="field">
                         <label style="text-align: center;">Item Id</label>
-                        <input type="text" placeholder="Item Id" name="itemId">
+                        <input type="text" list="itemsList" placeholder="Item Id" name="itemId"/>
+                        <datalist id="itemsList">
+                            <option value="Rice"/>
+                            <option value="Soaps"/>
+                            <option value="Pens"/>
+                            <option value="Salt"/>
+                        </datalist>
                     </div>
                     <div class="field">
                         <label style="text-align: center;">Item Name</label>
-                        <input type="text" placeholder="Item Name" name="itemName">
+                        <input type="text" placeholder="Item Name" name="itemName"/>
                     </div>
 
                     <div class="field">
                         <label style="text-align: center;">No.Of Items</label>
-                        <input type="number" placeholder="No.Of Items" name="noItems">
+                        <input type="number" placeholder="No.Of Items" name="noItems"/>
                     </div>
                     <div class="field">
                         <label style="text-align: center;">Price</label>
-                        <input type="number" placeholder="Price" name="ItemsPrice" class="billing">
+                        <input type="number" placeholder="Price" name="ItemsPrice" class="billing"/>
                     </div>
                 </div>
                 <div class="field">
                     <label>Total Price</label>
-                    <input type="text" placeholder="Price" name="totalPrice" class="total">
+                    <input type="text" placeholder="Price" name="totalPrice" class="total"/>
                 </div>
 
                 <input type="button" class="ui red button" value="Add More"/> 

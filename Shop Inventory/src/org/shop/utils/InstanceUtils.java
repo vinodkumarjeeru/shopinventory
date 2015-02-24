@@ -10,6 +10,7 @@ import org.shop.domain.Transactions;
 import org.shop.domain.Customer;
 import org.shop.domain.Inventory;
 import org.shop.domain.Purchase;
+import org.shop.domain.SoldItemDescription;
 import org.shop.domain.Store;
 import org.shop.service.InventoryService;
 import org.shop.service.impl.InventoryServiceImpl;
@@ -28,6 +29,7 @@ public class InstanceUtils {
     private Transactions balance;
     private Inventory inventory;
     private InventoryService service;
+    private SoldItemDescription desc;
 
     public InstanceUtils() {
         address = new Address();
@@ -38,6 +40,7 @@ public class InstanceUtils {
         balance = new Transactions();
         inventory = new Inventory();
         service = InventoryServiceImpl.getService();
+        desc = new SoldItemDescription();
     }
 
     public Address getAddress() {
@@ -70,5 +73,9 @@ public class InstanceUtils {
 
     public InventoryService getService() {
         return service;
+    }
+
+    public SoldItemDescription getItemDesc() {
+        return desc;
     }
 }

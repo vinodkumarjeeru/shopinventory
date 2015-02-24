@@ -18,7 +18,7 @@ import org.shop.web.utils.RootController;
  */
 public class LogoutController extends RootController {
 
-    final static Logger log = Logger.getLogger(LogoutController.class);
+    private final static Logger log = Logger.getLogger(LogoutController.class);
 
     @Override
     protected void doWork(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

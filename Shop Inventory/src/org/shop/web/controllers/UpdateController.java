@@ -23,14 +23,14 @@ import org.shop.web.utils.RootController;
  */
 public class UpdateController extends RootController {
 
-    final static Logger log = Logger.getLogger(UpdateController.class);
+    private final static Logger log = Logger.getLogger(UpdateController.class);
 
     @Override
     protected void doWork(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         InventoryService service = InventoryServiceImpl.getService();
         if (request.getParameter("action").equalsIgnoreCase("Find Customer")) {
-            String username = request.getParameter("custName");
-            Long phone = Long.valueOf(request.getParameter("phone"));
+            String username = request.getParameter("custName").trim();
+            Long phone = Long.valueOf(request.getParameter("phone").trim());
             log.debug("Parameters passed:" + username + "" + phone);
             Customer customer = service.findByCustomer(username, phone);
             log.debug(customer);
@@ -44,20 +44,20 @@ public class UpdateController extends RootController {
         }
 
         if (request.getParameter("action").equalsIgnoreCase("Update Customer")) {
-            Long custId = Long.valueOf(request.getParameter("customerId"));
+            Long custId = Long.valueOf(request.getParameter("customerId").trim());
             Customer customer = service.findByCustomer(custId);
             if (customer == null) {
                 request.setAttribute("status", "Please enter valid details");
                 request.getRequestDispatcher("/updateCustomer.jsp").forward(request, response);
             }
 
-            String name = request.getParameter("customerName");
-            Long mobile = new Long(request.getParameter("mobile"));
-            String door = request.getParameter("door");
-            String village = request.getParameter("village");
-            String district = request.getParameter("district");
-            String state = request.getParameter("state");
-            Long pincode = new Long(request.getParameter("pincode"));
+            String name = request.getParameter("customerName").trim();
+            Long mobile = new Long(request.getParameter("mobile").trim());
+            String door = request.getParameter("door").trim();
+            String village = request.getParameter("village").trim();
+            String district = request.getParameter("district").trim();
+            String state = request.getParameter("state").trim();
+            Long pincode = new Long(request.getParameter("pincode").trim());
             Address address = customer.getAddress();
             address.setDoorNo(door);
             address.setStateName(state);

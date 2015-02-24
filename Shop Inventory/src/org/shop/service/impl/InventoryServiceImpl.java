@@ -7,9 +7,11 @@ package org.shop.service.impl;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 import org.shop.domain.Transactions;
 import org.shop.domain.Customer;
 import org.shop.domain.Inventory;
@@ -52,6 +54,14 @@ public class InventoryServiceImpl implements InventoryService {
         session = getSession();
         Transaction transaction = session.beginTransaction();
         session.merge(inventory);
+        closeSession(session, transaction);
+    }
+
+    @Override
+    public void addItemsToStore(Store store) {
+        session = getSession();
+        Transaction transaction = session.beginTransaction();
+        session.save(store);
         closeSession(session, transaction);
     }
 
@@ -123,6 +133,16 @@ public class InventoryServiceImpl implements InventoryService {
         Customer customer = (Customer) query.uniqueResult();
         session.close();
         return customer;
+    }
+
+    @Override
+    public List<String> getCustomerByKey(String key) {
+        session = getSession();
+        Criteria cr = session.createCriteria(Customer.class);
+        cr.add(Restrictions.like("customer_Name", key + "%"));
+        List<String> list = cr.list();
+        session.close();
+        return list;
     }
 
     @Override

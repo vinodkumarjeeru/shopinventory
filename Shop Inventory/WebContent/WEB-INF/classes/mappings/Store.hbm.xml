@@ -13,5 +13,6 @@
         <property name="price" column="price" type="java.lang.Double"></property>
         <property name="soldItems" column="soldItems" type="java.lang.Integer"></property>
         <property name="remainingItems" column="remItems" type="java.lang.Integer"></property>
+        <property name="factoryName" column="factoryName" type="java.lang.Integer"></property>
     </class>
 </hibernate-mapping>

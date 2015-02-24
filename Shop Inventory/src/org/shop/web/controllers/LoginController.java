@@ -20,28 +20,28 @@ import org.shop.web.utils.RootController;
  */
 public class LoginController extends RootController {
 
-    final static Logger log = Logger.getLogger(LoginController.class);
+    private final static Logger log = Logger.getLogger(LoginController.class);
 
     @Override
     protected void doWork(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
-            String username = request.getParameter("username");
-            String password = request.getParameter("password");
-            Administrator admin = new Administrator();
-            String adminUsername = admin.getUsername();
-            String adminPassword = admin.getPassword();
-            if (adminUsername.equals(username) && adminPassword.equals(password)) {
-                log.info("Login Successfull.");
-                HttpSession session = request.getSession();
-                session.setAttribute("Admin", admin);
-                response.sendRedirect("createCustomer.jsp");
-            } else {
-                log.warn("Login Failure! because invalid data entered.");
-                request.setAttribute("status", "Login Failure");
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/home.jsp");
-                dispatcher.forward(request, response);
-            }
+        String username = request.getParameter("username").trim();
+        String password = request.getParameter("password").trim();
+        Administrator admin = new Administrator();
+        String adminUsername = admin.getUsername();
+        String adminPassword = admin.getPassword();
+        if (adminUsername.equals(username) && adminPassword.equals(password)) {
+            log.info("Login Successfull.");
+            HttpSession session = request.getSession();
+            session.setAttribute("Admin", admin);
+            response.sendRedirect("createCustomer.jsp");
+        } else {
+            log.warn("Login Failure! because invalid data entered.");
+            request.setAttribute("status", "Login Failure");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/home.jsp");
+            dispatcher.forward(request, response);
+        }
 
 
 
