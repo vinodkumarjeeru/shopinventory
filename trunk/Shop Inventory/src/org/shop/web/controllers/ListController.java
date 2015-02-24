@@ -21,7 +21,7 @@ import org.shop.web.utils.RootController;
  */
 public class ListController extends RootController {
 
-    final static Logger log = Logger.getLogger(ListController.class);
+    private final static Logger log = Logger.getLogger(ListController.class);
 
     @Override
     protected void doWork(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

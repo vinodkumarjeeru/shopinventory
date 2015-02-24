@@ -49,11 +49,13 @@ public class CustomerBillingController extends RootController {
 
             for (int i = 0; i < itemIds.length; i++) {
                 if (itemIds[i] != null && itemNames[i] != null && noItems[i] != null && ItemsPrice[i] != null) {
+                    //SoldItemDescription desc = utils.getItemDesc();
                     String itemId = itemIds[i].trim();
                     String itemName = itemNames[i].trim();
                     int noItem = Integer.valueOf(noItems[i].trim());
                     double itemsPrice = Double.valueOf(ItemsPrice[i].trim());
                     log.debug("itemId:-" + itemId + "itemName:-" + itemName + "noItem:-" + noItem + "itemsPrice:-" + itemsPrice);
+
                 }
             }
             response.sendRedirect("createCustomer.jsp");

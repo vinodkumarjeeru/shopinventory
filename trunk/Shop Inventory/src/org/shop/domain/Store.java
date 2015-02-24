@@ -14,23 +14,25 @@ public class Store {
 
     private Long item_Id;
     private String item_Name;
-    private int quantity;
+    private int total_Items;
     private Date storage_Date;
     private double price;
     private int soldItems;
     private int remainingItems;
+    private String factoryName;
 
     public Store() {
     }
 
-    public Store(Long item_Id, String item_Name, int total_Items, Date storage_Date, double price, int soldItems, int remainingItems) {
+    public Store(Long item_Id, String item_Name, int total_Items, Date storage_Date, double price, int soldItems, int remainingItems, String factoryName) {
         this.item_Id = item_Id;
         this.item_Name = item_Name;
-        this.quantity = total_Items;
+        this.total_Items = total_Items;
         this.storage_Date = storage_Date;
         this.price = price;
         this.soldItems = soldItems;
         this.remainingItems = remainingItems;
+        this.factoryName = factoryName;
     }
 
     public Long getItem_Id() {
@@ -49,12 +51,12 @@ public class Store {
         this.item_Name = item_Name;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public int getTotal_Items() {
+        return total_Items;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setTotal_Items(int total_Items) {
+        this.total_Items = total_Items;
     }
 
     public Date getStorage_Date() {
@@ -63,14 +65,6 @@ public class Store {
 
     public void setStorage_Date(Date storage_Date) {
         this.storage_Date = storage_Date;
-    }
-
-    public double getUnitPrice() {
-        return price;
-    }
-
-    public void setUnitPrice(double unitPrice) {
-        this.price = unitPrice;
     }
 
     public int getSoldItems() {
@@ -89,6 +83,22 @@ public class Store {
         this.remainingItems = remainingItems;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public String getFactoryName() {
+        return factoryName;
+    }
+
+    public void setFactoryName(String factoryName) {
+        this.factoryName = factoryName;
+    }
+
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
@@ -97,7 +107,7 @@ public class Store {
         builder.append(", item_Name=");
         builder.append(item_Name);
         builder.append(", total_Items=");
-        builder.append(quantity);
+        builder.append(total_Items);
         builder.append(", storage_Date=");
         builder.append(storage_Date);
         builder.append(", price=");

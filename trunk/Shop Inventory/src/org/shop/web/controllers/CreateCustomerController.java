@@ -30,13 +30,13 @@ public class CreateCustomerController extends RootController {
     protected void doWork(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
-        String customerName = request.getParameter("firstname");
-        Long mobile = new Long(request.getParameter("mobile"));
-        String door = request.getParameter("door");
-        String village = request.getParameter("village");
-        String district = request.getParameter("district");
-        String state = request.getParameter("state");
-        Long pincode = new Long(request.getParameter("pincode"));
+        String customerName = request.getParameter("firstname").trim();
+        Long mobile = new Long(request.getParameter("mobile").trim());
+        String door = request.getParameter("door").trim();
+        String village = request.getParameter("village").trim();
+        String district = request.getParameter("district").trim();
+        String state = request.getParameter("state").trim();
+        Long pincode = new Long(request.getParameter("pincode").trim());
 
         InstanceUtils utils = new InstanceUtils();
         Address address = utils.getAddress();
