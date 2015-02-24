@@ -14,5 +14,6 @@
         <mapping resource="mappings/Customer.hbm.xml"></mapping>
         <mapping resource="mappings/Purchase.hbm.xml"></mapping>
         <mapping resource="mappings/Inventory.hbm.xml"></mapping>
+        <mapping resource="mappings/Store.hbm.xml"></mapping>
     </session-factory>
 </hibernate-configuration>

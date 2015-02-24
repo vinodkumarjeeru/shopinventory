@@ -12,7 +12,7 @@ import java.util.Date;
  */
 public class Store {
 
-    private Long item_Id;
+    private String item_Id;
     private String item_Name;
     private int total_Items;
     private Date storage_Date;
@@ -24,7 +24,7 @@ public class Store {
     public Store() {
     }
 
-    public Store(Long item_Id, String item_Name, int total_Items, Date storage_Date, double price, int soldItems, int remainingItems, String factoryName) {
+    public Store(String item_Id, String item_Name, int total_Items, Date storage_Date, double price, int soldItems, int remainingItems, String factoryName) {
         this.item_Id = item_Id;
         this.item_Name = item_Name;
         this.total_Items = total_Items;
@@ -35,11 +35,11 @@ public class Store {
         this.factoryName = factoryName;
     }
 
-    public Long getItem_Id() {
+    public String getItem_Id() {
         return item_Id;
     }
 
-    public void setItem_Id(Long item_Id) {
+    public void setItem_Id(String item_Id) {
         this.item_Id = item_Id;
     }
 
