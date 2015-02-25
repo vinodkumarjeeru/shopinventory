@@ -90,7 +90,7 @@
             <c:redirect url="home.jsp"/>
         </c:if>
 
-        <%@include file="sideMenu.jsp" %>
+        <%@include file="customerMenu.jsp" %>
         <div class="ui form segment" id="customerRegForm">
             <form method="POST" action="${pageContext.request.contextPath}/create">
                 <div class="field">
