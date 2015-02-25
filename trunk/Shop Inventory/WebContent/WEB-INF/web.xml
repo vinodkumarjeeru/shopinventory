@@ -80,11 +80,19 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>AjaxController</servlet-name>
-        <servlet-class>org.shop.web.controllers.AjaxController</servlet-class>
+        <servlet-class>org.shop.web.controllers.KeyController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AjaxController</servlet-name>
         <url-pattern>/getinfo</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AddItemsController</servlet-name>
+        <servlet-class>org.shop.web.controllers.AddItemsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddItemsController</servlet-name>
+        <url-pattern>/additem</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

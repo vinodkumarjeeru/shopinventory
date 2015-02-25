@@ -24,7 +24,7 @@
         </script>
     </head>
     <body>
-        <%@include file="sideMenu.jsp" %>
+        <%@include file="customerMenu.jsp" %>
         <c:if test="${empty Admin}">
             <c:redirect url="home.jsp"/>
         </c:if>

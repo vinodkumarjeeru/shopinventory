@@ -21,9 +21,9 @@ import org.shop.web.utils.RootController;
  *
  * @author vinod
  */
-public class AjaxController extends RootController {
+public class KeyController extends RootController {
 
-    private static final Logger log = Logger.getLogger(AjaxController.class);
+    private static final Logger log = Logger.getLogger(KeyController.class);
 
     @Override
     protected void doWork(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

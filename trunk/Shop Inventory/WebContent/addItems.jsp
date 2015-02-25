@@ -17,9 +17,10 @@
         <script type="text/javascript" src="js/semantic.min.js"></script>
     </head>
     <body>
+        <%@include file="storeMenu.jsp" %>
         <c:if test="${empty Admin}">
             <c:redirect url="home.jsp"/>
         </c:if>
-        <h1>Hello World!</h1>
+
     </body>
 </html>
