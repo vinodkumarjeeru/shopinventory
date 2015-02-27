@@ -27,7 +27,7 @@
                         <i class="fa fa-bars"></i>
                     </button>
                     <a class="navbar-brand page-scroll" href="#page-top">
-                        <i class="fa fa-play-circle"></i> Welcome To My Page
+                        <i class="fa fa-play-circle"></i> Expectations Beyond
                     </a>
                 </div>
 
@@ -42,10 +42,10 @@
                             <a class="page-scroll" href="#about">About</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#download">Contact</a>
+                            <a class="page-scroll" href="#contact">Contact</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#contact">Login</a>
+                            <a class="page-scroll" href="#Login">Login</a>
                         </li>
                     </ul>
                 </div>
@@ -60,8 +60,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8 col-md-offset-2">
-                            <h1 class="brand-heading">Inventory</h1>
-                            <p class="intro-text">It Includes info about all customers.<br>It Manages all customer transactions.</p>
+                            <h1 class="brand-heading">INVENTORY MANAGEMENT</h1>
+                            <p class="intro-text">Maintains The Records .Information.<br>.........</p>
                             <a href="#about" class="btn btn-circle page-scroll">
                                 <i class="fa fa-angle-double-down animated"></i>
                             </a>
@@ -75,29 +75,30 @@
         <section id="about" class="container content-section text-center">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <h2>About Project</h2>
-                    <p>Grayscale is a free Bootstrap 3 theme created by Start Bootstrap. It can be yours right now, simply download the template on <a href="http://startbootstrap.com/template-overviews/grayscale/">the preview page</a>. The theme is open source, and you can use it for any purpose, personal or commercial.</p>
-                    <p>This theme features stock photos by <a href="http://gratisography.com/">Gratisography</a> along with a custom Google Maps skin courtesy of <a href="http://snazzymaps.com/">Snazzy Maps</a>.</p>
-                    <p>Grayscale includes full HTML, CSS, and custom JavaScript files along with LESS files for easy customization.</p>
+                    <h2>About Inventory Management</h2>
+                    <p>It is all about maintaining the records information like cudstomer records, items records, list of assets and many more This product is suitable for any Commercial Bussiness needs to low business needs  .</p>
+               
+                <p>It helps to get all details of your business in single clicks NO TENSION NO WORRY WHAT IS HAPPENING Everything is Secure from Now</p>
                 </div>
             </div>
         </section>
 
-        <!-- Download Section -->
-        <section id="download" class="content-section text-center">
-            <div class="download-section">
-                <div class="container">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <h2>Download Grayscale</h2>
-                        <p>You can download Grayscale for free on the preview page at Start Bootstrap.</p>
-                        <a href="http://startbootstrap.com/template-overviews/grayscale/" class="btn btn-default btn-lg">Visit Download Page</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
         <section id="contact" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Contact Our Stake Holders</h2>
+                <p>Feel free to email us to provide some feedback on our product, give us suggestions for new enhancement, or just say hello!</p>
+             
+                <span class="glyphicon glyphicon-phone-alt " ></span><p>+919999999999</p>
+                <p><a href="mailto:feedback@startbootstrap.com">sai@sky.com</a>
+                </p>
+               
+            </div>
+        </div>
+    </section>
+
+        <!-- Login Section -->
+        <section id="Login" class="container content-section text-center">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <h2>Please Enter The Following Details To Login</h2>
@@ -141,9 +142,6 @@
 
         <!-- Plugin JavaScript -->
         <script type="text/javascript" src="js/jquery.easing.min.js"></script>
-
-        <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
 
         <!-- Custom Theme JavaScript -->
         <script type="text/javascript" src="js/grayscale.js"></script>
