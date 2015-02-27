@@ -37,6 +37,7 @@
                         <li><a href="${pageContext.request.contextPath}/createCustomer.jsp">Customer Module</a></li>
                         <li><a href="${pageContext.request.contextPath}/addItems.jsp">Stock Module</a></li>
                         <li><a href="#">Factory Module</a></li>
+                        <li><a href="${pageContext.request.contextPath}/logout">Logout</a></li>
                     </ul>
                 </div>
             </div>
