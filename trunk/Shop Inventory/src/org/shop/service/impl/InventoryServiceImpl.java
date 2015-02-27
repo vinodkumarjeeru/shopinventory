@@ -7,6 +7,7 @@ package org.shop.service.impl;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -28,6 +29,7 @@ public class InventoryServiceImpl implements InventoryService {
 
     private static InventoryServiceImpl impl = new InventoryServiceImpl();
     private static Session session = null;
+    private static final Logger log = Logger.getLogger(InventoryServiceImpl.class);
 
     private InventoryServiceImpl() {
     }
@@ -94,6 +96,7 @@ public class InventoryServiceImpl implements InventoryService {
         Query query = session.createQuery("from Store store where store.item_Id=: item_Id");
         query.setParameter("item_Id", id);
         Store store1 = (Store) query.uniqueResult();
+
         if (store1 != null) {
             Transaction transaction = session.beginTransaction();
             session.update(store);
@@ -143,6 +146,19 @@ public class InventoryServiceImpl implements InventoryService {
         List<String> list = cr.list();
         session.close();
         return list;
+    }
+
+    @Override
+    public boolean getItemsByKey(String key) {
+        session = getSession();
+        Criteria cr = session.createCriteria(Store.class);
+        cr.add(Restrictions.eq("item_Id", key));
+        Store store = (Store) cr.uniqueResult();
+        session.close();
+        if (store == null) {
+            return true;
+        }
+        return false;
     }
 
     @Override

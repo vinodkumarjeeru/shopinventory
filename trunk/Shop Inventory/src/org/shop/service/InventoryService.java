@@ -37,6 +37,8 @@ public interface InventoryService {
     public Customer findByCustomer(String name);
 
     public List<String> getCustomerByKey(String key);
+    
+    public boolean getItemsByKey(String key);
 
     public Customer findByCustomer(long id);
 

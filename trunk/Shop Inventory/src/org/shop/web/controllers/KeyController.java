@@ -45,5 +45,16 @@ public class KeyController extends RootController {
                 out.println(nameList);
             }
         }
+        if (param.equals("itemId")) {
+            String content = request.getParameter("criteria").trim();
+            InventoryService service = utils.getService();
+            boolean status = service.getItemsByKey(content);
+            if (!status) {
+                out.println("Item Id Already Exists! Please Choose Different Id...");
+            } else {
+                out.println("Item Id Avaliabled...!");
+            }
+
+        }
     }
 }
