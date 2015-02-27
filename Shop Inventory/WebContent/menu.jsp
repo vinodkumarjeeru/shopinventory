@@ -34,8 +34,8 @@
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
                     <ul class="nav nav-pills">
-                        <li><a href="${pageContext.request.contextPath}/createCustomer.jsp">Customer Module</a></li>
-                        <li><a href="${pageContext.request.contextPath}/addItems.jsp">Stock Module</a></li>
+                        <li><a href="${pageContext.request.contextPath}/customerMenu.jsp">Customer Module</a></li>
+                        <li><a href="${pageContext.request.contextPath}/storeMenu.jsp">Stock Module</a></li>
                         <li><a href="#">Factory Module</a></li>
                         <li><a href="${pageContext.request.contextPath}/logout">Logout</a></li>
                     </ul>
