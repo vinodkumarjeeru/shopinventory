@@ -31,51 +31,48 @@ public class InstanceUtils {
     private InventoryService service;
     private SoldItemDescription desc;
 
-    public InstanceUtils() {
-        address = new Address();
-        admin = new Administrator();
-        customer = new Customer();
-        purchase = new Purchase();
-        store = new Store();
-        balance = new Transactions();
-        inventory = new Inventory();
-        service = InventoryServiceImpl.getService();
-        desc = new SoldItemDescription();
-    }
-
     public Address getAddress() {
+    	address = new Address();
         return address;
     }
 
     public Administrator getAdmin() {
+    	admin = new Administrator();
         return admin;
     }
 
     public Customer getCustomer() {
+    	customer = new Customer();
         return customer;
     }
 
     public Purchase getPurchase() {
+    	 purchase = new Purchase();
         return purchase;
     }
 
     public Store getStore() {
+         store = new Store();
         return store;
     }
 
     public Transactions getBalance() {
+    	 balance = new Transactions();
         return balance;
     }
 
     public Inventory getInventory() {
+    	 inventory = new Inventory();
         return inventory;
     }
 
     public InventoryService getService() {
+        service = InventoryServiceImpl.getService();
         return service;
     }
 
     public SoldItemDescription getItemDesc() {
+        desc = new SoldItemDescription();
         return desc;
     }
 }
