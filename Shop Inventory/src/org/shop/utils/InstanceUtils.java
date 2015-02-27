@@ -32,37 +32,37 @@ public class InstanceUtils {
     private SoldItemDescription desc;
 
     public Address getAddress() {
-    	address = new Address();
+        address = new Address();
         return address;
     }
 
     public Administrator getAdmin() {
-    	admin = new Administrator();
+        admin = new Administrator();
         return admin;
     }
 
     public Customer getCustomer() {
-    	customer = new Customer();
+        customer = new Customer();
         return customer;
     }
 
     public Purchase getPurchase() {
-    	 purchase = new Purchase();
+        purchase = new Purchase();
         return purchase;
     }
 
     public Store getStore() {
-         store = new Store();
+        store = new Store();
         return store;
     }
 
     public Transactions getBalance() {
-    	 balance = new Transactions();
+        balance = new Transactions();
         return balance;
     }
 
     public Inventory getInventory() {
-    	 inventory = new Inventory();
+        inventory = new Inventory();
         return inventory;
     }
 
