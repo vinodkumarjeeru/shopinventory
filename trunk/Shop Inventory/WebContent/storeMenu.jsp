@@ -55,6 +55,10 @@
                 <i class="external share icon"></i>
                 Sold Items
             </a>
+             <a class="item" href="${pageContext.request.contextPath}/menu.jsp">
+                <i class="external share icon"></i>
+                Home
+            </a>
             <a class="item" href="${pageContext.request.contextPath}/logout">
                 <i class="sign out icon"></i>
                 Logout

@@ -53,13 +53,9 @@
                 <i class="money icon"></i>
                 Update Balance
             </a>
-            <a class="item">
+            <a class="item" href="${pageContext.request.contextPath}/menu.jsp">
                 <i class="trello icon"></i>
-                Credit Amount
-            </a>
-            <a class="item">
-                <i class="sort content descending icon"></i>
-                Debit Amount
+                Home
             </a>
             <a class="item" href="${pageContext.request.contextPath}/logout">
                 <i class="sign out icon"></i>
