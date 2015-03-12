@@ -35,6 +35,7 @@ public class LoginController extends RootController {
             log.info("Login Successfull.");
             HttpSession session = request.getSession();
             session.setAttribute("Admin", admin);
+            session.setMaxInactiveInterval(30);
             response.sendRedirect("menu.jsp");
         } else {
             log.warn("Login Failure! because invalid data entered.");

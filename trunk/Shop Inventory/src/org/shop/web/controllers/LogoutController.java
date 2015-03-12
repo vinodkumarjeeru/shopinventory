@@ -9,7 +9,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
-import org.shop.domain.Administrator;
 import org.shop.web.utils.RootController;
 
 /**
@@ -22,11 +21,10 @@ public class LogoutController extends RootController {
 
     @Override
     protected void doWork(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Administrator admin = (Administrator) request.getSession().getAttribute("Admin");
         request.getSession().removeAttribute("Admin");
+        request.getSession().invalidate();
         log.info("Successfully logged out");
         response.sendRedirect("home.jsp");
-        //request.setAttribute("status", "Successfully logged out");
-        //request.getRequestDispatcher("/home.jsp").forward(request, response);
+       
     }
 }
