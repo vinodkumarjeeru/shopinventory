@@ -31,11 +31,11 @@
         </c:if>
 
         <div class="ui left vertical inverted labeled icon sidebar menu">
-            <a class="item" href="#">
+            <a class="item" href="addItems.jsp">
                 <i class="add to cart icon"></i>
                 Add Item
             </a>
-            <a class="item" href="#">
+            <a class="item" href="updateItems.jsp">
                 <i class="edit icon"></i>
                 Update Items
             </a>

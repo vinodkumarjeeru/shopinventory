@@ -91,19 +91,17 @@ public class InventoryServiceImpl implements InventoryService {
     }
 
     @Override
-    public boolean updateStoreItems(int id, Store store) {
+    public boolean updateStoreItems(String id, Store store) {
         session = getSession();
-        Query query = session.createQuery("from Store store where store.item_Id=: item_Id");
+        Query query = session.createQuery("from Store store where store.item_Id=:item_Id");
         query.setParameter("item_Id", id);
         Store store1 = (Store) query.uniqueResult();
-
         if (store1 != null) {
             Transaction transaction = session.beginTransaction();
-            session.update(store);
+            session.merge(store);
             closeSession(session, transaction);
             return true;
         }
-
         return false;
     }
 
@@ -159,6 +157,8 @@ public class InventoryServiceImpl implements InventoryService {
             return true;
         }
         return false;
+
+
     }
 
     @Override
@@ -182,11 +182,13 @@ public class InventoryServiceImpl implements InventoryService {
     }
 
     @Override
-    public Store findByItem(Long itemId) {
+    public Store findByItem(String itemId, String itemName) {
         session = getSession();
-        Query query = session.createQuery("from Store store where store.item_Id=:item_Id");
+        Query query = session.createQuery("from Store store where store.item_Id=:item_Id and store.item_Name=:item_name");
         query.setParameter("item_Id", itemId);
+        query.setParameter("item_name", itemName);
         Store store = (Store) query.uniqueResult();
+        log.debug(store);
         session.close();
         return store;
     }

@@ -21,14 +21,14 @@ public interface InventoryService {
     public void addInventoryDetails(Inventory inventory);
 
     public void updateInventoryDetails(Inventory inventory);
-    
+
     public void createCustomer(Customer customer);
 
     public void addItemsToStore(Store store);
 
     public boolean updateCustomer(Long id, Customer customer);
 
-    public boolean updateStoreItems(int id, Store store);
+    public boolean updateStoreItems(String id, Store store);
 
     public boolean updateBalanceData(int id, Transactions balance);
 
@@ -37,14 +37,14 @@ public interface InventoryService {
     public Customer findByCustomer(String name);
 
     public List<String> getCustomerByKey(String key);
-    
+
     public boolean getItemsByKey(String key);
 
     public Customer findByCustomer(long id);
 
     public Customer findByCustomer(String name, Long phone);
 
-    public Store findByItem(Long itemId);
+    public Store findByItem(String itemId, String itemName);
 
     public Transactions getBalanceDetails(Long inventoryId);
 
