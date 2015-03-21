@@ -49,10 +49,10 @@ public class KeyController extends RootController {
             String content = request.getParameter("criteria").trim();
             InventoryService service = utils.getService();
             boolean status = service.getItemsByKey(content);
-            if (!status) {
-                out.println("Item Id Already Exists! Please Choose Different Id...");
-            } else {
+            if (status) {
                 out.println("Item Id Avaliabled...!");
+            } else {
+                out.println("Item Id Already Exists! Please Choose Different Id...");
             }
 
         }

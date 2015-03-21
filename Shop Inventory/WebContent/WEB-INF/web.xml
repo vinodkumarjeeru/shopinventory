@@ -94,4 +94,12 @@
         <servlet-name>AddItemsController</servlet-name>
         <url-pattern>/additem</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>ItemUpdateController</servlet-name>
+        <servlet-class>org.shop.web.controllers.ItemUpdateController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ItemUpdateController</servlet-name>
+        <url-pattern>/updateitem</url-pattern>
+    </servlet-mapping>
 </web-app>

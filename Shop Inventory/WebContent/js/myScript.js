@@ -68,5 +68,22 @@ function showItemsEntry() {
     $(mainDiv).append(sub3);
     $(mainDiv).append(sub4);
     $(mainDiv).append(sub5);
-    $(mainDiv).insertAfter($(".five.fields").eq($(".five.fields").length-1));
+    $(mainDiv).insertAfter($(".five.fields").eq($(".five.fields").length - 1));
+}
+function getKeyDetails() {
+    console.log("MyScript.js Called...");
+    var options = {};
+    options.url = "/ShopInventory/getinfo?info=itemId";
+    options.type = "GET";
+    options.data = {"criteria": $("#itemId").val()};
+    options.success = function(data) {
+        if (data.length != 0) {
+            $("#itemDiv").addClass("ui red error");
+            $(".ui.red.message").show().html(data);
+        }
+    },
+            options.error = function(error) {
+        console.log("Error Occured...." + error);
+    };
+    $.ajax(options);
 }

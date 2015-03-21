@@ -19,6 +19,8 @@ public class MyController extends RootController {
     @Override
     protected void doWork(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        
         /*String username = request.getParameter("username");
          String password = request.getParameter("password");
          System.out.println(username + password);
